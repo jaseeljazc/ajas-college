@@ -9,7 +9,7 @@ interface SectionHeaderProps {
 
 export default function SectionHeader({ label, heading, subtext, align = "left" }: SectionHeaderProps) {
   return (
-    <div className={`mb-12 ${align === "center" ? "text-center mx-auto" : ""}`}>
+    <div className={`mb-8 md:mb-12 ${align === "center" ? "text-center mx-auto" : ""}`}>
       <motion.div
         initial={{ opacity: 0, x: -10 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -26,7 +26,7 @@ export default function SectionHeader({ label, heading, subtext, align = "left" 
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ delay: 0.1 }}
-        className="text-3xl md:text-4xl font-semibold text-[#111827]"
+        className="mb-0"
       >
         {heading}
       </motion.h2>

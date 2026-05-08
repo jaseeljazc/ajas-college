@@ -21,7 +21,7 @@ export default function ConsultancyPage() {
       </section>
 
       {/* Expertise & Faculty */}
-      <section className="bg-[#fafafa] py-24 border-b border-[#f3f4f6]">
+      <section className="bg-[#fafafa] py-16 md:py-24 border-b border-[#f3f4f6]">
         <div className="max-w-7xl mx-auto px-6">
           <h3 className="text-xs uppercase tracking-[0.2em] text-[#263866] font-medium mb-3">Experts</h3>
           <h2 className="text-3xl font-semibold text-[#111827] mb-8">Our Consultants</h2>
@@ -59,9 +59,9 @@ export default function ConsultancyPage() {
       </section>
 
       {/* Projects & Form */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
             
             {/* Active Projects */}
             <div>

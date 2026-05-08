@@ -9,7 +9,7 @@ export default function AlumniPage() {
       {/* Page Hero */}
       <section className="bg-white border-b border-[#f3f4f6] py-16">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row gap-12 items-center">
+          <div className="flex flex-col md:flex-row gap-6 lg:gap-12 items-center">
             <div className="w-full md:w-1/2">
               <div className="text-xs text-[#9ca3af] mb-4">
                 <Link href="/" className="hover:text-[#263866] transition">Home</Link> → Alumni
@@ -31,7 +31,7 @@ export default function AlumniPage() {
       </section>
 
       {/* Directory */}
-      <section className="bg-[#fafafa] py-24">
+      <section className="bg-[#fafafa] py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-6">
           <h3 className="text-xs uppercase tracking-[0.2em] text-[#263866] font-medium mb-3">Directory</h3>
           <h2 className="text-3xl font-semibold text-[#111827] mb-8">Notable Alumni</h2>
@@ -85,7 +85,7 @@ export default function AlumniPage() {
       </section>
 
       {/* Success Stories */}
-      <section className="bg-white py-24 border-b border-[#f3f4f6]">
+      <section className="bg-white py-16 md:py-24 border-b border-[#f3f4f6]">
         <div className="max-w-7xl mx-auto px-6">
           <h3 className="text-xs uppercase tracking-[0.2em] text-[#263866] font-medium mb-3">Spotlight</h3>
           <h2 className="text-3xl font-semibold text-[#111827] mb-8">Success Stories</h2>
@@ -106,9 +106,9 @@ export default function AlumniPage() {
       </section>
 
       {/* Registration Section */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col lg:flex-row gap-16 items-center">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center">
             <div className="w-full lg:w-1/2">
               <h3 className="text-xs uppercase tracking-[0.2em] text-[#263866] font-medium mb-3">Join Network</h3>
               <h2 className="text-3xl font-semibold text-[#111827] mb-4">Alumni Registration</h2>

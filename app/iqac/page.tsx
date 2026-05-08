@@ -9,7 +9,7 @@ export default function IqacPage() {
       {/* Page Hero */}
       <section className="bg-white border-b border-[#f3f4f6] py-16">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row gap-12 items-center">
+          <div className="flex flex-col md:flex-row gap-6 lg:gap-12 items-center">
             <div className="w-full md:w-1/2">
               <div className="text-xs text-[#9ca3af] mb-4">
                 <Link href="/" className="hover:text-[#263866] transition">Home</Link> → IQAC
@@ -36,7 +36,7 @@ export default function IqacPage() {
       </section>
 
       {/* NAAC Criteria */}
-      <section className="bg-[#fafafa] py-24">
+      <section className="bg-[#fafafa] py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-6">
           <h3 className="text-xs uppercase tracking-[0.2em] text-[#263866] font-medium mb-3">Assessment</h3>
           <h2 className="text-3xl font-semibold text-[#111827] mb-8">NAAC Criteria Progress</h2>
@@ -79,7 +79,7 @@ export default function IqacPage() {
       </section>
 
       {/* Documents */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-6">
           <h3 className="text-xs uppercase tracking-[0.2em] text-[#263866] font-medium mb-3">Reports</h3>
           <h2 className="text-3xl font-semibold text-[#111827] mb-8">IQAC Documents</h2>

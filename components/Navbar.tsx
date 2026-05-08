@@ -8,18 +8,8 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const pathname = usePathname();
-
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setIsSearchOpen(false);
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
 
   const navGroups = [
     {
@@ -180,13 +170,6 @@ export default function Navbar() {
                 </Link>
               ))}
 
-              <button 
-                onClick={() => setIsSearchOpen(true)}
-                className="p-2 text-[#4b5563] hover:text-[#263866] transition-colors"
-              >
-                <Search size={18} />
-              </button>
-
               <Link href="/admissions" className="bg-[#263866] text-white px-5 py-2 rounded-full text-xs font-semibold hover:bg-[#1e40af] transition-all transform hover:scale-105 shadow-md shadow-blue-900/20">
                 Admissions
               </Link>
@@ -194,9 +177,6 @@ export default function Navbar() {
 
             {/* Mobile Toggle */}
             <div className="flex xl:hidden items-center gap-2">
-              <button onClick={() => setIsSearchOpen(true)} className="p-2 text-[#4b5563]">
-                <Search size={20} />
-              </button>
               <button
                 className="text-[#111827] p-2"
                 onClick={() => setIsOpen(true)}
@@ -297,58 +277,6 @@ export default function Navbar() {
           )}
         </AnimatePresence>
       </header>
-
-      {/* Search Overlay */}
-      <AnimatePresence>
-        {isSearchOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-white z-[100] flex flex-col p-6 md:p-12"
-          >
-            <div className="max-w-4xl mx-auto w-full flex flex-col">
-              <div className="flex justify-end mb-12">
-                <button 
-                  onClick={() => setIsSearchOpen(false)}
-                  className="p-3 bg-[#f3f4f6] rounded-full hover:bg-[#e5e7eb] transition"
-                >
-                  <X size={24} className="text-[#111827]" />
-                </button>
-              </div>
-
-              <div className="relative mb-12">
-                <input 
-                  type="text"
-                  placeholder="Search for programmes, news, departments..."
-                  autoFocus
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full text-2xl md:text-4xl font-light border-b-2 border-[#263866] pb-4 focus:outline-none placeholder:text-[#9ca3af]"
-                />
-                <Search size={32} className="absolute right-0 top-2 text-[#263866]" />
-              </div>
-
-              <div>
-                <h4 className="text-xs uppercase tracking-widest text-[#9ca3af] font-semibold mb-6">Quick Links</h4>
-                <div className="flex flex-wrap gap-4">
-                  {quickLinks.map((link) => (
-                    <Link
-                      key={link}
-                      href={`/${link.toLowerCase()}`}
-                      onClick={() => setIsSearchOpen(false)}
-                      className="px-6 py-3 bg-[#f8fafc] border border-[#e5e7eb] rounded-xl text-sm font-medium text-[#4b5563] hover:border-[#263866] hover:text-[#263866] transition flex items-center gap-2 group"
-                    >
-                      {link}
-                      <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition" />
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       {/* Mobile Floating CTA */}
       <div className="xl:hidden">

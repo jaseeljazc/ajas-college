@@ -21,9 +21,9 @@ interface PageHeroProps {
 
 export default function PageHero({ breadcrumbs, label, heading, subtext, showImage = false, bgImage }: PageHeroProps) {
   return (
-    <section className="bg-[#f8fafc] border-b border-[#f1f5f9] py-16">
+    <section className="bg-[#f8fafc] border-b border-[#f1f5f9] py-10 md:py-16">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col lg:flex-row gap-12 items-center">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -43,8 +43,8 @@ export default function PageHero({ breadcrumbs, label, heading, subtext, showIma
                 </div>
               ))}
             </nav>
-            <h3 className="text-xs uppercase tracking-[0.2em] text-[#263866] font-medium mb-3">{label}</h3>
-            <h1 className="text-4xl md:text-5xl font-semibold text-[#111827] mb-6 tracking-tight">{heading}</h1>
+            <p className="label mb-3" style={{ color: 'var(--c-primary)' }}>{label}</p>
+            <h1 className="mb-6">{heading}</h1>
             {subtext && <p className="text-[#6b7280] text-lg leading-relaxed max-w-2xl">{subtext}</p>}
           </motion.div>
           {showImage && (

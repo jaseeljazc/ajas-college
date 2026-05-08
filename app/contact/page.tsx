@@ -3,7 +3,7 @@
 import PageHero from "@/components/PageHero";
 import SectionHeader from "@/components/SectionHeader";
 import ScrollReveal from "@/components/ScrollReveal";
-import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Linkedin, Youtube, Twitter } from "lucide-react";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
 // Use custom social icons due to lucide-react brand removals
 const FacebookIcon = ({ size = 20 }: { size?: number }) => (
@@ -38,9 +38,9 @@ export default function ContactPage() {
         subtext="Have questions? We are here to help. Contact our administrative office for any queries related to admissions, academics, or other services."
       />
 
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
               
               {/* Left Column: Details */}
               <ScrollReveal className="space-y-12 w-full">

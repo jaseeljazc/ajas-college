@@ -25,9 +25,9 @@ export default function NewsPage() {
         subtext="Stay informed with the latest news, announcements, and success stories from Al Jamia Arts & Science College."
       />
 
-      <section className="py-24 bg-[#fafafa]">
+      <section className="py-16 md:py-24 bg-[#fafafa]">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col lg:flex-row gap-16">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
             
             {/* Main Feed */}
             <div className="w-full lg:w-2/3">
@@ -67,7 +67,7 @@ export default function NewsPage() {
             </div>
 
             {/* Sidebar */}
-            <aside className="w-full lg:w-1/3 flex flex-col gap-12">
+            <aside className="w-full lg:w-1/3 flex flex-col gap-6 lg:gap-12">
                {/* Categories */}
                <div className="bg-white border border-[#e5e7eb] rounded-3xl p-8">
                   <h4 className="font-semibold text-[#111827] mb-6">Categories</h4>

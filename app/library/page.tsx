@@ -15,12 +15,14 @@ export default function LibraryPage() {
         label="KNOWLEDGE RESOURCE"
         heading="College Library"
         subtext="A gateway to a world of information, supporting the academic and research needs of the AJAS community."
+        showImage={true}
+        bgImage="/images/library_hero_new.png"
       />
 
       {/* Overview & Image */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col lg:flex-row gap-16 items-center">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center">
             <ScrollReveal className="w-full lg:w-1/2">
               <div>
                 <SectionHeader
@@ -60,9 +62,9 @@ export default function LibraryPage() {
       </section>
 
       {/* Services & OPAC */}
-      <section className="py-24 bg-[#fafafa]">
+      <section className="py-16 md:py-24 bg-[#fafafa]">
         <div className="max-w-7xl mx-auto px-6">
-           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
               <ScrollReveal className="w-full">
                 <div>
                   <SectionHeader
@@ -120,9 +122,9 @@ export default function LibraryPage() {
       </section>
 
       {/* Rules & Timings */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
               <ScrollReveal className="w-full">
                 <div>
                   <SectionHeader

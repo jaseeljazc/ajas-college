@@ -80,16 +80,20 @@ body::before {
 
 /* ── Typography tuning (per-element) ──────── */
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   font-weight: 400;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
   line-height: 1.1;
+  color: var(--c-text-primary);
 }
 
-h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); }
-h2 { font-size: clamp(1.75rem, 4vw, 3rem); }
-h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); }
+h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); line-height: 1.05; letter-spacing: -0.04em; }
+h2 { font-size: clamp(2rem, 5vw, 3rem); }
+h3 { font-size: clamp(1.5rem, 3vw, 2.25rem); }
+h4 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); }
+h5 { font-size: clamp(1.1rem, 2vw, 1.25rem); }
+h6 { font-size: 1rem; font-family: var(--font-body); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; }
 
 /* ── Custom scrollbar ─────────────────────── */
 
@@ -183,4 +187,15 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); }
 .h-scroll::-webkit-scrollbar-thumb {
   background: var(--c-border);
   border-radius: 100px;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }

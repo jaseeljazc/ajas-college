@@ -42,9 +42,9 @@ export default function DepartmentPage() {
       />
 
       {/* About Department */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
             <div>
               <SectionHeader
                 label="OVERVIEW"
@@ -85,7 +85,7 @@ export default function DepartmentPage() {
       </section>
 
       {/* Faculty */}
-      <section className="py-24 bg-[#fafafa]">
+      <section className="py-16 md:py-24 bg-[#fafafa]">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeader
             label="PEOPLE"
@@ -107,9 +107,9 @@ export default function DepartmentPage() {
       </section>
 
       {/* Facilities & Activities */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
             <div>
               <SectionHeader
                 label="INFRASTRUCTURE"
@@ -159,9 +159,9 @@ export default function DepartmentPage() {
       </section>
 
       {/* Achievements & Gallery */}
-      <section className="py-24 bg-[#fafafa]">
+      <section className="py-16 md:py-24 bg-[#fafafa]">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col lg:flex-row gap-16">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
             <div className="w-full lg:w-1/2">
               <SectionHeader
                 label="SUCCESS"

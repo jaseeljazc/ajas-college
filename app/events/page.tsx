@@ -54,7 +54,7 @@ export default function EventsPage() {
       </section>
 
       {/* Main Grid */}
-      <section className="py-24 bg-[#fafafa]">
+      <section className="py-16 md:py-24 bg-[#fafafa]">
         <div className="max-w-7xl mx-auto px-6">
           {filteredEvents.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -63,7 +63,7 @@ export default function EventsPage() {
               ))}
             </div>
           ) : (
-            <div className="text-center py-32 bg-white border border-[#e5e7eb] rounded-3xl">
+            <div className="text-center py-16 md:py-24 lg:py-32 bg-white border border-[#e5e7eb] rounded-3xl">
                <p className="text-[#9ca3af] font-medium">No events found in this category.</p>
             </div>
           )}
@@ -71,7 +71,7 @@ export default function EventsPage() {
       </section>
 
       {/* Past Events */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeader
             label="ARCHIVE"

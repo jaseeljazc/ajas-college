@@ -31,6 +31,10 @@ export const metadata: Metadata = {
   title: "Al Jamia Arts & Science College — Perinthalmanna",
   description:
     "A premier minority institution of higher learning in Kerala, affiliated to the University of Calicut. 14 UG & PG programmes in Commerce, Science, Arts, and Technology.",
+  icons: {
+    icon: "/images/logo.jpg",
+    apple: "/images/logo.jpg",
+  },
 };
 
 export default function RootLayout({
@@ -39,7 +43,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en">
       <body
         className={`${outfit.variable} ${fraunces.variable} ${jetbrainsMono.variable} min-h-screen flex flex-col`}
         style={{ fontFamily: "var(--font-body)" }}

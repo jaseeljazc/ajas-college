@@ -84,7 +84,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#263866] text-white py-16">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-12">
           {/* Col 1 */}
           <div>
             <div className="flex items-center gap-3 mb-6">
@@ -122,7 +122,6 @@ export default function Footer() {
 
           {/* Col 2 */}
           <div>
-            <h3 className="font-semibold text-white mb-6">Quick Links</h3>
             <ul className="space-y-3">
               <li>
                 <Link
@@ -193,7 +192,6 @@ export default function Footer() {
 
           {/* Col 3 */}
           <div>
-            <h3 className="font-semibold text-white mb-6">Portal</h3>
             <ul className="space-y-3">
               <li>
                 <Link
@@ -256,7 +254,6 @@ export default function Footer() {
 
           {/* Col 4 */}
           <div>
-            <h3 className="font-semibold text-white mb-6">External Links</h3>
             <ul className="space-y-3">
               <li>
                 <a
@@ -297,12 +294,6 @@ export default function Footer() {
         <div className="border-t border-white/10 pt-8 mt-16 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-white/40 text-sm text-center md:text-left">
             © 2026 Al Jamia Arts & Science College. All Rights Reserved.
-          </p>
-          <p className="text-white/30 text-sm">
-            Designed & Developed by{" "}
-            <a href="#" className="hover:text-white transition">
-              Prepscale
-            </a>
           </p>
         </div>
       </div>

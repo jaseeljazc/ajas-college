@@ -218,9 +218,9 @@ export default function ProgrammeDetailPage() {
         bgImage="/images/classroom.png"
       />
 
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-16">
             <div className="lg:col-span-2">
               <SectionHeader
                 label="OVERVIEW"
@@ -307,7 +307,7 @@ export default function ProgrammeDetailPage() {
       </section>
 
       {/* Related Programmes */}
-      <section className="py-24 bg-[#fafafa] border-t border-[#e5e7eb]">
+      <section className="py-16 md:py-24 bg-[#fafafa] border-t border-[#e5e7eb]">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeader
             label="EXPLORE MORE"

@@ -43,11 +43,11 @@ export default function AboutPage() {
         heading="Excellence in Education"
         subtext="Empowering minds since 2010. Al Jamia Arts & Science College is committed to academic rigor and ethical growth."
         showImage={true}
-        bgImage="/images/hero.png"
+        bgImage="/images/about_hero_new.png"
       />
 
       {/* Vision & Mission — Editorial Redesign */}
-      <section id="vision" className="py-32" style={{ background: 'var(--c-surface-raised)', borderBottom: '1px solid var(--c-border)' }}>
+      <section id="vision" className="py-16 md:py-24 lg:py-32" style={{ background: 'var(--c-surface-raised)', borderBottom: '1px solid var(--c-border)' }}>
         <div className="max-w-7xl mx-auto px-6 md:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32">
             
@@ -105,9 +105,9 @@ export default function AboutPage() {
       </section>
 
       {/* College Overview */}
-      <section id="overview" className="py-24 bg-[#f8fafc]">
+      <section id="overview" className="py-16 md:py-24 bg-[#f8fafc]">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col lg:flex-row gap-16">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
             <div className="w-full lg:w-3/5">
               <ScrollReveal>
                 <SectionHeader
@@ -156,7 +156,7 @@ export default function AboutPage() {
       </section>
 
       {/* Core Values */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeader
             label="GUIDING PRINCIPLES"
@@ -185,7 +185,7 @@ export default function AboutPage() {
       </section>
 
       {/* Administration */}
-      <section id="admin" className="py-24 bg-[#fafafa]">
+      <section id="admin" className="py-16 md:py-24 bg-[#fafafa]">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeader
             label="LEADERSHIP"
@@ -214,7 +214,7 @@ export default function AboutPage() {
       </section>
 
       {/* Committees */}
-      <section id="committees" className="py-24 bg-white">
+      <section id="committees" className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeader
             label="GOVERNANCE"
@@ -235,7 +235,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mandatory Disclosure */}
-      <section id="disclosure" className="py-24 bg-[#fafafa]">
+      <section id="disclosure" className="py-16 md:py-24 bg-[#fafafa]">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeader
             label="TRANSPARENCY"
@@ -260,7 +260,7 @@ export default function AboutPage() {
       </section>
 
       {/* Sister Institutions */}
-      <section id="sister" className="py-24 bg-white">
+      <section id="sister" className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeader
             label="NETWORK"

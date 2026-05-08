@@ -1,33 +1,18 @@
-import Link from "next/link";
-import { Image as ImageIcon, Briefcase } from "lucide-react";
+import PageHero from "@/components/PageHero";
 import ScrollReveal from "@/components/ScrollReveal";
+import { Briefcase } from "lucide-react";
 
 export default function PlacementPage() {
   return (
     <div className="flex flex-col">
-      {/* Page Hero */}
-      <section className="bg-white border-b border-[#f3f4f6] py-16">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row gap-12 items-center">
-            <div className="w-full md:w-1/2">
-              <div className="text-xs text-[#9ca3af] mb-4">
-                <Link href="/" className="hover:text-[#263866] transition">Home</Link> → Placement
-              </div>
-              <h3 className="text-xs uppercase tracking-[0.2em] text-[#263866] font-medium mb-3">Placement Cell</h3>
-              <h1 className="text-4xl font-semibold text-[#111827] mb-4">Career & Placement</h1>
-              <p className="text-[#6b7280]">Empowering students with industry connections, career guidance, and campus recruitment opportunities.</p>
-            </div>
-            <div className="w-full md:w-1/2">
-              <div className="w-full h-[240px] bg-[#f3f4f6] rounded-2xl flex flex-col items-center justify-center border border-dashed border-[#d1d5db]">
-                <ImageIcon size={36} className="text-[#9ca3af] mb-3" />
-                <p className="text-sm text-[#9ca3af] font-medium">Placement Hero — 800×480px</p>
-                <p className="text-xs text-[#d1d5db]">Size recommendation</p>
-              </div>
-              <p className="text-xs text-[#9ca3af] mt-2 text-center">[Replace with actual photo]</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        breadcrumbs={[{ label: "Placement" }]}
+        label="Placement Cell"
+        heading="Career & Placement"
+        subtext="Empowering students with industry connections, career guidance, and campus recruitment opportunities."
+        showImage={true}
+        bgImage="/images/placement_hero.png"
+      />
 
       {/* Stats Row */}
       <section className="bg-white border-b border-[#f3f4f6]">
@@ -51,7 +36,7 @@ export default function PlacementPage() {
       </section>
 
       {/* Job Listings */}
-      <section className="bg-[#fafafa] py-24">
+      <section className="bg-[#fafafa] py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-6">
           <h3 className="text-xs uppercase tracking-[0.2em] text-[#263866] font-medium mb-3">Opportunities</h3>
           <h2 className="text-3xl font-semibold text-[#111827] mb-8">Recent Placements & Offers</h2>
@@ -117,7 +102,7 @@ export default function PlacementPage() {
       </section>
 
       {/* Internships */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-6">
           <h3 className="text-xs uppercase tracking-[0.2em] text-[#263866] font-medium mb-3">Experience</h3>
           <h2 className="text-3xl font-semibold text-[#111827] mb-8">Internship Programs</h2>
@@ -149,9 +134,9 @@ export default function PlacementPage() {
       </section>
 
       {/* Company Registration */}
-      <section className="bg-[#fafafa] border-t border-[#f3f4f6] py-24">
+      <section className="bg-[#fafafa] border-t border-[#f3f4f6] py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col lg:flex-row gap-16">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
             <ScrollReveal className="w-full lg:w-1/2">
               <div>
                 <h3 className="text-xs uppercase tracking-[0.2em] text-[#263866] font-medium mb-3">Recruiters</h3>

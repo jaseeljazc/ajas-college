@@ -38,7 +38,7 @@ export default function FeedbackPage() {
       </section>
 
       {/* Main Content */}
-      <section className="bg-[#fafafa] py-24">
+      <section className="bg-[#fafafa] py-16 md:py-24">
         <div className="max-w-4xl mx-auto px-6">
           
           {/* Metrics */}

@@ -19,12 +19,12 @@ export default function StudentLifePage() {
   ];
 
   const clubs = [
-    { name: "Arts Club", advisor: "Prof. Haris P.", desc: "Nurturing creative talents in fine arts, performance, and cultural activities.", activities: ["Annual Arts Fest", "Painting Competitions", "Theater Workshops"] },
-    { name: "Coding Club", advisor: "Dr. Rajesh K.", desc: "A platform for tech enthusiasts to explore programming and software development.", activities: ["Hackathons", "Tech Talks", "Project Showcase"] },
-    { name: "Nature Club", advisor: "Dr. Fathima S.", desc: "Focusing on environmental awareness and sustainable campus initiatives.", activities: ["Tree Plantation", "Eco-walks", "Waste Management Awareness"] },
-    { name: "Health Club", advisor: "Prof. Anitha M.", desc: "Promoting physical and mental wellness among the student community.", activities: ["Yoga Sessions", "Blood Donation Camps", "Health Checkups"] },
-    { name: "Literature Club", advisor: "Ms. Laila B.", desc: "Celebrating language and literature through reading and writing.", activities: ["Poetry Slams", "Book Discussions", "Writing Contests"] },
-    { name: "Women's Cell", advisor: "Prof. Anitha M.", desc: "Empowering female students and addressing gender-related concerns.", activities: ["Self-defense Training", "Empowerment Seminars", "Counseling"] },
+    { name: "Arts Club", advisor: "Prof. Haris P.", description: "Nurturing creative talents in fine arts, performance, and cultural activities.", activities: ["Annual Arts Fest", "Painting Competitions", "Theater Workshops"] },
+    { name: "Coding Club", advisor: "Dr. Rajesh K.", description: "A platform for tech enthusiasts to explore programming and software development.", activities: ["Hackathons", "Tech Talks", "Project Showcase"] },
+    { name: "Nature Club", advisor: "Dr. Fathima S.", description: "Focusing on environmental awareness and sustainable campus initiatives.", activities: ["Tree Plantation", "Eco-walks", "Waste Management Awareness"] },
+    { name: "Health Club", advisor: "Prof. Anitha M.", description: "Promoting physical and mental wellness among the student community.", activities: ["Yoga Sessions", "Blood Donation Camps", "Health Checkups"] },
+    { name: "Literature Club", advisor: "Ms. Laila B.", description: "Celebrating language and literature through reading and writing.", activities: ["Poetry Slams", "Book Discussions", "Writing Contests"] },
+    { name: "Women's Cell", advisor: "Prof. Anitha M.", description: "Empowering female students and addressing gender-related concerns.", activities: ["Self-defense Training", "Empowerment Seminars", "Counseling"] },
   ];
 
   return (
@@ -34,12 +34,14 @@ export default function StudentLifePage() {
         label="CAMPUS EXPERIENCE"
         heading="Vibrant Student Life"
         subtext="Beyond academics, AJAS offers a rich ecosystem for personal growth, social responsibility, and cultural expression."
+        showImage={true}
+        bgImage="/images/student_life_hero_new.png"
       />
 
       {/* NSS Section */}
-      <section id="nss" className="py-24 bg-white">
+      <section id="nss" className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col lg:flex-row gap-16 items-center">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center">
             <ScrollReveal className="w-full lg:w-1/2">
               <div>
                 <SectionHeader
@@ -104,7 +106,7 @@ export default function StudentLifePage() {
       </section>
 
       {/* Scholarships */}
-      <section id="scholarships" className="py-24 bg-white">
+      <section id="scholarships" className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
            <SectionHeader
              label="SUPPORT"
@@ -128,9 +130,9 @@ export default function StudentLifePage() {
       </section>
 
       {/* Counselling Center */}
-      <section id="counselling" className="py-24 bg-[#fafafa]">
+      <section id="counselling" className="py-16 md:py-24 bg-[#fafafa]">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col lg:flex-row gap-16">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
             <ScrollReveal className="w-full lg:w-3/5">
               <div>
                 <SectionHeader
@@ -170,7 +172,7 @@ export default function StudentLifePage() {
       </section>
 
       {/* Clubs Detailed Grid */}
-      <section id="clubs" className="py-24 bg-white">
+      <section id="clubs" className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
            <SectionHeader
              label="FORUMS"
@@ -188,7 +190,7 @@ export default function StudentLifePage() {
       </section>
 
       {/* Register a Complaint */}
-      <section id="complaint" className="py-24 bg-[#fafafa]">
+      <section id="complaint" className="py-16 md:py-24 bg-[#fafafa]">
         <div className="max-w-3xl mx-auto px-6">
           <ScrollReveal>
             <div className="bg-white border border-[#e5e7eb] rounded-3xl p-10 shadow-lg">

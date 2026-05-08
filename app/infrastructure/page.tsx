@@ -72,13 +72,13 @@ export default function InfrastructurePage() {
         heading="Campus Infrastructure"
         subtext="Modern, well-equipped, and technology-driven infrastructure designed to support academic and personal growth."
         showImage={true}
-        bgImage="/images/classroom.png"
+        bgImage="/images/infrastructure_hero_new.png"
       />
 
       {/* Overview */}
-      <section className="py-24 bg-[#f1f5f9]">
+      <section className="py-16 md:py-24 bg-[#f1f5f9]">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col lg:flex-row gap-16 items-center">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center">
             <div className="w-full lg:w-1/2">
               <ScrollReveal>
                <SectionHeader
@@ -116,7 +116,7 @@ export default function InfrastructurePage() {
       </section>
 
       {/* Facilities List */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 gap-24">
             {facilities.map((facility, i) => (
@@ -154,7 +154,7 @@ export default function InfrastructurePage() {
       </section>
 
       {/* Upcoming Projects */}
-      <section className="py-24 bg-[#fafafa]">
+      <section className="py-16 md:py-24 bg-[#fafafa]">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeader
             label="FUTURE GROWTH"
@@ -184,13 +184,13 @@ export default function InfrastructurePage() {
       </section>
 
       {/* Fee Details */}
-      <section id="fees" className="py-24 bg-white border-t border-[#f3f4f6]">
+      <section id="fees" className="py-16 md:py-24 bg-white border-t border-[#f3f4f6]">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeader
             label="ADMISSIONS INFO"
             heading="Fee Structure"
           />
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-12">
             <ScrollReveal className="lg:col-span-2">
                <div className="bg-white border border-[#e5e7eb] rounded-2xl overflow-hidden shadow-sm h-full">
                  <DocumentRow name="UG Programmes Fee Schedule 2024-25" type="PDF" year="2024" size="1.2 MB" />

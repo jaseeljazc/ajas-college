@@ -163,7 +163,7 @@ export default function AcademicsPage() {
       />
 
       {/* Departments Grid */}
-      <section id="departments" className="py-24 bg-white">
+      <section id="departments" className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeader
             label="DEPARTMENTS"
@@ -212,7 +212,7 @@ export default function AcademicsPage() {
       </section>
 
       {/* Faculty Section */}
-      <section id="faculty" className="py-24 bg-[#fafafa]">
+      <section id="faculty" className="py-16 md:py-24 bg-[#fafafa]">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeader label="FACULTY" heading="Our Expert Faculty" />
 
@@ -254,9 +254,9 @@ export default function AcademicsPage() {
       </section>
 
       {/* Syllabus & Resources */}
-      <section id="syllabus" className="py-24 bg-white">
+      <section id="syllabus" className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
             <ScrollReveal delay={0.1}>
               <div>
                 <SectionHeader label="RESOURCES" heading="Syllabus Downloads" />
@@ -332,7 +332,7 @@ export default function AcademicsPage() {
       </section>
 
       {/* Add-on Courses */}
-      <section id="addon" className="py-24 bg-[#fafafa]">
+      <section id="addon" className="py-16 md:py-24 bg-[#fafafa]">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeader
             label="SKILL DEVELOPMENT"
@@ -384,7 +384,7 @@ export default function AcademicsPage() {
       </section>
 
       {/* Toppers List */}
-      <section id="toppers" className="py-24 bg-white">
+      <section id="toppers" className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeader label="ACHIEVEMENTS" heading="Academic Toppers" />
           <ScrollReveal delay={0.1}>

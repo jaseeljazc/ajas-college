@@ -1,19 +1,19 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence, useInView } from "framer-motion";
+import { motion, AnimatePresence, useInView, Variants } from "framer-motion";
 import { ArrowRight, ArrowUpRight, X, FileText, Image as ImageIcon, User as UserIcon, Briefcase, Users, ClipboardCheck, Rocket, Heart, BookOpen, MessageSquare, Award } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import Link from "next/link";
 
 /* Orchestrated stagger — anchors only, not everything */
-const orchestrate = {
+const orchestrate: Variants = {
   hidden: { opacity: 0 },
   show: { opacity: 1, transition: { staggerChildren: 0.12, delayChildren: 0.2 } },
 };
-const rise = {
+const rise: Variants = {
   hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
 };
 
 export default function Home() {
@@ -78,16 +78,17 @@ export default function Home() {
       {/* ── HERO ─────────────────────────────── */}
       <section className="min-h-screen flex flex-col lg:grid lg:grid-cols-2 relative overflow-hidden">
         {/* Left — Content */}
-        <div className="flex-1 flex items-center px-6 md:px-16 lg:px-24 py-24 lg:py-0 relative z-10">
+        <div className="flex-1 flex items-center px-6 md:px-16 lg:px-24 py-24 md:py-32 lg:py-0 relative z-10">
+          {/* Mobile Background Image & Overlay */}
+          <div className="absolute inset-0 lg:hidden z-[-1] bg-[url('/images/hero.png')] bg-cover bg-center" />
+          <div className="absolute inset-0 lg:hidden z-[-1] bg-white/90" />
+          
           <motion.div variants={orchestrate} initial="hidden" animate="show" className="max-w-2xl w-full">
-
             <motion.p variants={rise} className="label mb-8" style={{ color: 'var(--c-accent)' }}>
               Est. 2010 — University of Calicut
             </motion.p>
 
-            <motion.h1 variants={rise} style={{ fontFamily: 'var(--font-display)', lineHeight: 1.05, letterSpacing: '-0.03em' }}
-              className="text-[clamp(2.5rem,6vw,5rem)] mb-8"
-            >
+            <motion.h1 variants={rise} className="mb-8">
               Al Jamia Arts &<br />
               <span style={{ color: 'var(--c-primary)' }}>Science College</span>
             </motion.h1>
@@ -113,7 +114,7 @@ export default function Home() {
             </motion.div>
 
             {/* Stats as typography, not tiles */}
-            <motion.div variants={rise} className="flex gap-12 mt-16 pt-12" style={{ borderTop: '1px solid var(--c-border)' }}>
+            <motion.div variants={rise} className="flex gap-6 lg:gap-12 mt-16 pt-12" style={{ borderTop: '1px solid var(--c-border)' }}>
               {[
                 { num: "2000+", label: "Students" },
                 { num: "14", label: "Programmes" },
@@ -128,8 +129,8 @@ export default function Home() {
           </motion.div>
         </div>
 
-        {/* Right — Image, sharp editorial */}
-        <div className="relative min-h-[50vh] lg:min-h-0 lg:h-full w-full">
+        {/* Right — Image, sharp editorial (Hidden on mobile as it's now a background) */}
+        <div className="relative min-h-[50vh] lg:min-h-0 lg:h-full w-full hidden lg:block">
           <div className="absolute inset-0 overflow-hidden">
             <img src="/images/hero.png" alt="Al Jamia College Campus" className="w-full h-full object-cover" />
           </div>
@@ -138,7 +139,7 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.2, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ delay: 1.2, duration: 0.6, ease: "easeOut" }}
             className="absolute bottom-6 left-6 lg:bottom-12 lg:left-12 px-6 py-4 flex items-center gap-4 z-20"
             style={{ background: 'var(--c-surface-raised)', border: '1px solid var(--c-border)', borderRadius: '0' }}
           >
@@ -152,7 +153,7 @@ export default function Home() {
       <div className="overflow-hidden py-4" style={{ borderTop: '1px solid var(--c-border)', borderBottom: '1px solid var(--c-border)' }}>
         <div className="animate-marquee">
           {[...Array(2)].map((_, rep) => (
-            <span key={rep} className="inline-flex items-center gap-16 mr-16">
+            <span key={rep} className="inline-flex items-center gap-8 lg:gap-16 mr-16">
               {["Admissions Open 2026-27", "Convocation 2026 Held Successfully", "University Results Published", "ISO 9001:2015 Certified"].map((t, i) => (
                 <span key={i} className="inline-flex items-center gap-3 text-sm" style={{ color: 'var(--c-text-secondary)' }}>
                   <span className="w-1 h-1 rounded-full" style={{ background: 'var(--c-accent)' }} />
@@ -165,7 +166,7 @@ export default function Home() {
       </div>
 
       {/* ── ABOUT ────────────────────────────── */}
-      <section id="about" className="py-24 lg:py-32 relative" style={{ background: 'var(--c-surface)' }}>
+      <section id="about" className="py-16 md:py-24 lg:py-32 relative" style={{ background: 'var(--c-surface)' }}>
         <div className="max-w-7xl mx-auto px-6 md:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
 
@@ -175,7 +176,7 @@ export default function Home() {
                 <p className="label mb-6">About the College</p>
                 <hr className="divider-accent mb-10" />
 
-                <h2 className="mb-10" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2rem,4vw,3rem)' }}>
+                <h2 className="mb-10">
                   Where knowledge meets character, since 2010
                 </h2>
 
@@ -211,8 +212,8 @@ export default function Home() {
             </ScrollReveal>
 
             {/* Right — Principal & Quick Facts */}
-            <ScrollReveal delay={0.2} className="lg:col-span-5 space-y-6">
-              <div>
+            <ScrollReveal delay={0.2} className="lg:col-span-5">
+              <div className="flex flex-col gap-6">
                 {/* Principal */}
                 <div className="p-8 relative overflow-hidden" style={{ background: 'var(--c-surface-raised)', border: '1px solid var(--c-border)', borderRadius: 'var(--radius-lg)' }}>
                   <div className="flex items-start gap-5">
@@ -254,10 +255,10 @@ export default function Home() {
       </section>
 
       {/* ── PROGRAMMES ────────────────────────── */}
-      <section id="academics" className="py-24 lg:py-32 relative" style={{ background: 'var(--c-surface-raised)' }}>
+      <section id="academics" className="py-16 md:py-24 lg:py-32 relative" style={{ background: 'var(--c-surface-raised)' }}>
         <div className="max-w-7xl mx-auto px-6 md:px-16">
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mb-16">
             <ScrollReveal className="lg:col-span-8">
               <p className="label mb-6">Academics</p>
               <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2rem,4vw,3rem)' }}>
@@ -350,9 +351,9 @@ export default function Home() {
         </div>
       </section>
       {/* ── NEWS & EVENTS ─────────────────────── */}
-      <section id="events" className="py-24 lg:py-32" style={{ background: 'var(--c-surface)' }}>
+      <section id="events" className="py-16 md:py-24 lg:py-32" style={{ background: 'var(--c-surface)' }}>
         <div className="max-w-7xl mx-auto px-6 md:px-16">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mb-16">
             <ScrollReveal className="lg:col-span-8">
               <p className="label mb-6">Campus Life</p>
               <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2rem,4vw,3rem)' }}>News & Events</h2>
@@ -410,9 +411,25 @@ export default function Home() {
             {/* News cards */}
             <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-6">
               {[
-                { date: "Apr 22, 2026", title: "Earth Day celebrations foster environmental awareness", img: "/images/activities.png", latest: true },
-                { date: "Apr 8, 2026", title: "AJAS Graduation Ceremony honours top achievers", img: "/images/graduation_kerala.png" },
-                { date: "Apr 6, 2026", title: "LAUREATUS 2026: Honouring Achievers", img: "/images/seminar_new.png" },
+                { 
+                  date: "Apr 22, 2026", 
+                  title: "Earth Day celebrations foster environmental awareness", 
+                  desc: "AJAS Nature Club organized a mega plantation drive and awareness seminar to promote sustainable living.",
+                  img: "/images/activities.png", 
+                  latest: true 
+                },
+                { 
+                  date: "Apr 8, 2026", 
+                  title: "AJAS Graduation Ceremony honours top achievers", 
+                  desc: "A momentous occasion as students from various departments were awarded degrees by distinguished guests.",
+                  img: "/images/graduation_kerala.png" 
+                },
+                { 
+                  date: "Apr 6, 2026", 
+                  title: "LAUREATUS 2026: Honouring Achievers", 
+                  desc: "An annual award ceremony recognizing outstanding academic performance and leadership contributions.",
+                  img: "/images/seminar_new.png" 
+                },
               ].map((news, i) => (
                 <ScrollReveal key={i} delay={i * 0.1} className="h-full">
                   <Link href="#" className="group flex flex-col h-full overflow-hidden transition-all duration-300 hover:-translate-y-1" style={{ border: '1px solid var(--c-border)', borderRadius: 'var(--radius-md)' }}>
@@ -425,9 +442,10 @@ export default function Home() {
                         </div>
                       )}
                     </div>
-                    <div className="flex flex-col flex-1 p-4" style={{ background: 'var(--c-surface-raised)' }}>
+                    <div className="flex flex-col flex-1 p-5" style={{ background: 'var(--c-surface-raised)' }}>
                       <span className="text-[10px] font-medium uppercase tracking-[0.08em] mb-2" style={{ fontFamily: 'var(--font-mono)', color: 'var(--c-accent)' }}>{news.date}</span>
-                      <h5 className="text-sm font-medium leading-snug flex-1 transition-colors duration-200" style={{ color: 'var(--c-text-primary)' }}>{news.title}</h5>
+                      <h5 className="text-sm font-semibold leading-snug mb-2 transition-colors duration-200" style={{ color: 'var(--c-text-primary)' }}>{news.title}</h5>
+                      <p className="text-xs leading-relaxed opacity-60" style={{ color: 'var(--c-text-secondary)' }}>{news.desc}</p>
                     </div>
                   </Link>
                 </ScrollReveal>
@@ -438,7 +456,7 @@ export default function Home() {
       </section>
 
       {/* ── NOTICES & DOWNLOADS ────────────────── */}
-      <section className="py-24 lg:py-32" style={{ background: 'var(--c-surface-raised)' }}>
+      <section className="py-16 md:py-24 lg:py-32" style={{ background: 'var(--c-surface-raised)' }}>
         <div className="max-w-7xl mx-auto px-6 md:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
 
@@ -499,12 +517,12 @@ export default function Home() {
       </section>
 
       {/* ── CAMPUS GALLERY ───────────────────── */}
-      <section id="gallery" className="py-24 lg:py-32 relative" style={{ background: 'var(--c-surface)' }}>
+      <section id="gallery" className="py-16 md:py-24 lg:py-32 relative" style={{ background: 'var(--c-surface)' }}>
         <div className="max-w-7xl mx-auto px-6 md:px-16">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mb-16">
             <ScrollReveal className="lg:col-span-8">
               <p className="label mb-6">Campus Life</p>
-              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2rem,4vw,3rem)' }}>
+              <h2 className="">
                 A glimpse of our campus
               </h2>
             </ScrollReveal>
@@ -535,16 +553,13 @@ export default function Home() {
       </section>
 
       {/* ── RECOGNITIONS ───────────────────────── */}
-      <section className="py-24 lg:py-32" style={{ background: 'var(--c-surface-raised)', borderTop: '1px solid var(--c-border)', borderBottom: '1px solid var(--c-border)' }}>
+      <section className="py-16 md:py-24 lg:py-32" style={{ background: 'var(--c-surface-raised)', borderTop: '1px solid var(--c-border)', borderBottom: '1px solid var(--c-border)' }}>
         <div className="max-w-7xl mx-auto px-6">
             <ScrollReveal className="w-full">
-              <div className="flex flex-wrap justify-center items-center gap-16">
+              <div className="flex flex-col items-center gap-12 lg:flex-row lg:justify-center lg:gap-16">
+                {/* Primary: University */}
                 {[
                   { name: "University of Calicut", logo: "/logos/University-Logo.jpg" },
-                  { name: "UGC", logo: "/logos/UGC-Logo.jpg" },
-                  { name: "NAAC", logo: "/logos/Naac-logo.jpg" },
-                  { name: "ISO Certified", logo: "/logos/ISO-Logo.jpg" },
-                  { name: "AICTE", logo: "/logos/AICTE-Logo.jpg" },
                 ].map((org) => (
                   <div key={org.name} className="flex flex-col items-center gap-3">
                     <div className="w-24 h-24 bg-white rounded-full overflow-hidden flex items-center justify-center p-4 transition-transform duration-300 hover:scale-105" style={{ border: '1px solid var(--c-border)' }}>
@@ -553,18 +568,35 @@ export default function Home() {
                     <span className="text-[10px] font-medium uppercase tracking-[0.15em]" style={{ fontFamily: 'var(--font-mono)' }}>{org.name}</span>
                   </div>
                 ))}
+
+                {/* Secondary: Other recognitions */}
+                <div className="grid grid-cols-2 lg:flex lg:items-center gap-8 md:gap-12 lg:gap-16">
+                  {[
+                    { name: "UGC", logo: "/logos/UGC-Logo.jpg" },
+                    { name: "NAAC", logo: "/logos/Naac-logo.jpg" },
+                    { name: "ISO Certified", logo: "/logos/ISO-Logo.jpg" },
+                    { name: "AICTE", logo: "/logos/AICTE-Logo.jpg" },
+                  ].map((org) => (
+                    <div key={org.name} className="flex flex-col items-center gap-3">
+                      <div className="w-20 h-20 bg-white rounded-full overflow-hidden flex items-center justify-center p-4 transition-transform duration-300 hover:scale-105" style={{ border: '1px solid var(--c-border)' }}>
+                        <img src={org.logo} alt={org.name} className="w-full h-full object-contain" />
+                      </div>
+                      <span className="text-[10px] font-medium uppercase tracking-[0.15em]" style={{ fontFamily: 'var(--font-mono)' }}>{org.name}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </ScrollReveal>
         </div>
       </section>
 
       {/* ── INTEGRATED PORTAL ──────────────────── */}
-      <section className="py-24 lg:py-32" style={{ background: 'var(--c-surface-raised)', borderTop: '1px solid var(--c-border)' }}>
+      <section className="py-16 md:py-24 lg:py-32" style={{ background: 'var(--c-surface-raised)', borderTop: '1px solid var(--c-border)' }}>
         <div className="max-w-7xl mx-auto px-6 md:px-16">
           <ScrollReveal>
             <div className="text-center mb-20">
               <p className="label mb-6">Services</p>
-              <h2 className="mb-6" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.5rem,5vw,3.5rem)' }}>Everything in one place</h2>
+              <h2 className="mb-6">Everything in one place</h2>
               <p className="text-base mx-auto max-w-xl" style={{ color: 'var(--c-text-secondary)' }}>
                 Access dedicated portals for placements, alumni networks, and campus services with a unified interface.
               </p>
@@ -578,56 +610,56 @@ export default function Home() {
                 {[
                   {
                     name: "Placement Cell",
-                    desc: "Career guidance & job opportunities",
+                    desc: "Comprehensive career guidance, skill development workshops, and premium job opportunities with leading recruiters.",
                     icon: Briefcase,
                     href: "/placement",
                     actions: ["Job Listings", "Mock Interviews", "Recruiters"],
                   },
                   {
                     name: "Alumni",
-                    desc: "Connect with our global network",
+                    desc: "Stay connected with our global network of graduates and participate in institutional growth through a dedicated portal.",
                     icon: Users,
                     href: "/alumni",
                     actions: ["Alumni Meet", "Directory", "Success Stories"],
                   },
                   {
                     name: "IQAC",
-                    desc: "Quality assurance & NAAC details",
+                    desc: "Ensuring internal quality assurance through regular monitoring and documentation in line with NAAC accreditation standards.",
                     icon: ClipboardCheck,
                     href: "/iqac",
                     actions: ["AQAR Reports", "Minutes", "Quality Policy"],
                   },
                   {
                     name: "Incubation",
-                    desc: "Innovation and startup support",
+                    desc: "A platform dedicated to fostering innovation, providing mentorship, and supporting startup ideas through expert guidance.",
                     icon: Rocket,
                     href: "/incubation",
                     actions: ["Funding", "Mentorship", "Innovation Lab"],
                   },
                   {
                     name: "PTA",
-                    desc: "Parent-Teacher Association portal",
+                    desc: "Connecting parents and teachers to ensure the holistic development and academic progress of every student on campus.",
                     icon: Heart,
                     href: "/pta",
                     actions: ["Schedule", "Executive Body", "Initiatives"],
                   },
                   {
                     name: "Consultancy",
-                    desc: "Academic & industry consultancy",
+                    desc: "Bridging academic expertise with industry needs through specialized consultancy projects and professional services.",
                     icon: BookOpen,
                     href: "/consultancy",
                     actions: ["Service List", "Expertise", "Projects"],
                   },
                   {
                     name: "Feedback",
-                    desc: "Share your valuable thoughts",
+                    desc: "A transparent channel for students and parents to share valuable insights and suggestions for continuous institutional improvement.",
                     icon: MessageSquare,
                     href: "/feedback",
                     actions: ["Student Feedback", "Parent Surveys", "Reviews"],
                   },
                   {
                     name: "ABC Portal",
-                    desc: "Academic Bank of Credits access",
+                    desc: "Seamlessly manage and transfer your academic credits through the national Academic Bank of Credits integrated portal.",
                     icon: Award,
                     href: "#",
                     actions: ["ID Generation", "Credit Transfer", "DigiLocker"],
@@ -674,7 +706,7 @@ export default function Home() {
       </section>
 
       {/* ── TESTIMONIALS ───────────────────────── */}
-      <section className="py-24 lg:py-32 relative overflow-hidden" style={{ background: 'var(--c-primary)', color: 'var(--c-text-inverse)' }}>
+      <section className="py-16 md:py-24 lg:py-32 relative overflow-hidden" style={{ background: 'var(--c-primary)', color: 'var(--c-text-inverse)' }}>
         <div className="max-w-7xl mx-auto px-6 md:px-16 text-center">
           <ScrollReveal>
             <p className="text-xs font-medium uppercase tracking-[0.2em] mb-12" style={{ fontFamily: 'var(--font-mono)', color: 'var(--c-accent)' }}>Student Voices</p>
@@ -697,12 +729,12 @@ export default function Home() {
       </section>
 
       {/* ── CLUBS ──────────────────────────────── */}
-      <section className="py-24 lg:py-32" style={{ background: 'var(--c-surface)' }}>
+      <section className="py-16 md:py-24 lg:py-32" style={{ background: 'var(--c-surface)' }}>
         <div className="max-w-7xl mx-auto px-6 md:px-16">
           <ScrollReveal>
             <div className="mb-16">
               <p className="label mb-6">Beyond Academics</p>
-              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2rem,4vw,3rem)' }}>Clubs & Forums</h2>
+              <h2 className="">Clubs & Forums</h2>
             </div>
           </ScrollReveal>
 
@@ -724,7 +756,7 @@ export default function Home() {
               <img src="/images/activities.png" alt="Student Activities" className="w-full h-full object-cover" />
               <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(11,17,32,0.7) 0%, transparent 50%)' }} />
               <div className="absolute bottom-0 left-0 p-10">
-                <h3 className="text-2xl text-white font-medium" style={{ fontFamily: 'var(--font-display)' }}>Nurturing talent & leadership</h3>
+                <h3 className="text-white font-medium">Nurturing talent & leadership</h3>
               </div>
             </div>
           </ScrollReveal>
@@ -732,23 +764,27 @@ export default function Home() {
       </section>
 
       {/* ── FINAL CTA ──────────────────────────── */}
-      <section id="admissions-cta" className="py-24 lg:py-32 text-center relative overflow-hidden" style={{ background: 'var(--c-ink)', color: 'var(--c-text-inverse)' }}>
-        {/* Decorative elements */}
-        <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 50% 50%, var(--c-accent) 0%, transparent 70%)' }} />
-        
-        <div className="max-w-4xl mx-auto px-6 relative z-10">
+      <section className="py-16 md:py-24 lg:py-32" style={{ background: 'var(--c-surface)' }}>
+        <div className="max-w-7xl mx-auto px-6">
           <ScrollReveal>
-            <p className="text-xs font-medium uppercase tracking-[0.3em] mb-8" style={{ fontFamily: 'var(--font-mono)', color: 'var(--c-accent)' }}>Admissions 2026-27</p>
-            <h2 className="mb-12" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.5rem,6vw,4.5rem)' }}>
-              Ready to start your<br />future at AJAS?
-            </h2>
-            <p className="text-lg mb-12 opacity-70 max-w-xl mx-auto">
-              Applications are now open for all undergraduate and postgraduate programmes. Join a community of excellence.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-6">
-              <Link href="/admissions" className="px-10 py-5 text-sm font-bold text-white transition-all duration-300 hover:-translate-y-1 shadow-2xl" style={{ background: 'var(--c-accent)', borderRadius: 'var(--radius-md)', color: 'var(--c-ink)' }}>
-                Apply Online Now
-              </Link>
+            <div id="admissions-cta" className="relative overflow-hidden p-12 md:p-24 text-center" style={{ background: 'var(--c-primary)', color: 'var(--c-text-inverse)', borderRadius: 'var(--radius-lg)' }}>
+              {/* Decorative elements */}
+              <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 50% 50%, var(--c-accent) 0%, transparent 60%)' }} />
+              
+              <div className="relative z-10 max-w-3xl mx-auto">
+                <p className="text-xs font-medium uppercase tracking-[0.3em] mb-6" style={{ fontFamily: 'var(--font-mono)', color: 'var(--c-accent)' }}>Admissions 2026-27</p>
+                <h2 className="mb-8">
+                  Ready to start your future at AJAS?
+                </h2>
+                <p className="text-base md:text-lg mb-10 opacity-80 max-w-xl mx-auto leading-relaxed">
+                  Applications are now open for all undergraduate and postgraduate programmes. Join a community of excellence.
+                </p>
+                <div className="flex justify-center">
+                  <Link href="/admissions" className="px-10 py-4 text-sm font-bold transition-all duration-300 hover:-translate-y-1 shadow-xl" style={{ background: 'var(--c-accent)', borderRadius: 'var(--radius-md)', color: 'var(--c-ink)' }}>
+                    Apply Online Now
+                  </Link>
+                </div>
+              </div>
             </div>
           </ScrollReveal>
         </div>

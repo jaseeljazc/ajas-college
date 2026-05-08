@@ -33,13 +33,13 @@ export default function AdmissionsPage() {
         heading="Join the AJAS Family"
         subtext="Applications are now open for all undergraduate and postgraduate programmes for the upcoming academic year."
         showImage={true}
-        bgImage="/images/admissions.png"
+        bgImage="/images/admissions_hero.png"
       />
 
       {/* Overview & Process */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
             <ScrollReveal delay={0.1}>
               <div>
                 <SectionHeader
@@ -107,9 +107,9 @@ export default function AdmissionsPage() {
       </section>
 
       {/* Rules & Requirements */}
-      <section className="py-24 bg-[#fafafa]">
+      <section className="py-16 md:py-24 bg-[#fafafa]">
         <div className="max-w-7xl mx-auto px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
               <ScrollReveal delay={0.1}>
                 <div>
                   <SectionHeader
@@ -170,7 +170,7 @@ export default function AdmissionsPage() {
       </section>
 
       {/* Contact for Admissions */}
-      <section className="py-24 bg-white border-t border-[#f3f4f6]">
+      <section className="py-16 md:py-24 bg-white border-t border-[#f3f4f6]">
         <div className="max-w-7xl mx-auto px-6 text-center">
            <SectionHeader
              label="GET IN TOUCH"
