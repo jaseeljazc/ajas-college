@@ -341,7 +341,7 @@ export default function Home() {
                   <img src="/images/classroom.png" alt="Classroom" className="absolute inset-0 w-full h-full object-cover" />
                   <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, var(--c-primary) 0%, transparent 60%)' }} />
                   <div className="absolute bottom-0 left-0 p-8">
-                    <p className="text-white text-lg" style={{ fontFamily: 'var(--font-display)' }}>Life at Al Jamia</p>
+                    <p className="text-white text-lg" style={{ fontFamily: 'var(--font-display)', color: '#FFFFFF' }}>Life at Al Jamia</p>
                     <Link href="/infrastructure" className="text-xs font-medium text-white/60 hover:text-white transition-colors mt-1 block">Explore Campus →</Link>
                   </div>
                 </div>
@@ -351,13 +351,13 @@ export default function Home() {
         </div>
       </section>
       {/* ── NEWS & EVENTS ─────────────────────── */}
-      <section id="events" className="py-16 md:py-24 lg:py-32" style={{ background: 'var(--c-surface)' }}>
+      <section id="events" className="py-16 md:py-24 lg:py-32" style={{ background: 'var(--c-surface-raised)' }}>
         <div className="max-w-7xl mx-auto px-6 md:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mb-16">
-            <ScrollReveal className="lg:col-span-8">
-              <p className="label mb-6">Campus Life</p>
-              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2rem,4vw,3rem)' }}>News & Events</h2>
-            </ScrollReveal>
+            <div className="lg:col-span-8">
+              <p className="label mb-6" style={{ color: 'var(--c-primary)', fontWeight: 600 }}>Campus Life</p>
+              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2rem,4vw,3rem)', color: 'var(--c-text-primary)' }}>News & Events</h2>
+            </div>
             <div className="lg:col-span-4 flex items-end justify-end">
               <Link href="/news" className="group inline-flex items-center gap-2 text-sm font-semibold transition-all duration-300" style={{ color: 'var(--c-primary)' }}>
                 All updates <ArrowRight size={15} className="transition-transform duration-300 group-hover:translate-x-1" />
@@ -373,8 +373,8 @@ export default function Home() {
                 <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(11,17,32,0.85) 0%, rgba(11,17,32,0.3) 60%, transparent 100%)' }} />
                 <div className="absolute inset-0 flex flex-col justify-end p-10 md:p-14">
                   <span className="label mb-4" style={{ color: 'var(--c-accent)' }}>Upcoming · May 2, 2026</span>
-                  <h3 className="text-3xl md:text-4xl text-white mb-3 leading-tight" style={{ fontFamily: 'var(--font-display)' }}>Convocation 2026</h3>
-                  <span className="text-xs font-medium text-white/50 group-hover:text-white/80 transition-colors flex items-center gap-1">
+                  <h3 className="text-3xl md:text-4xl text-white mb-3 leading-tight" style={{ fontFamily: 'var(--font-display)', color: '#FFFFFF' }}>Convocation 2026</h3>
+                  <span className="text-xs font-medium text-white/70 group-hover:text-white transition-colors flex items-center gap-1">
                     View details <ArrowRight size={12} />
                   </span>
                 </div>
@@ -388,7 +388,7 @@ export default function Home() {
             <ScrollReveal className="lg:col-span-2 h-full">
               <div className="h-full" style={{ border: '1px solid var(--c-border)', borderRadius: 'var(--radius-lg)', overflow: 'hidden' }}>
                 <div className="px-6 py-4" style={{ background: 'var(--c-surface-raised)', borderBottom: '1px solid var(--c-border)' }}>
-                  <span className="label">Upcoming Events</span>
+                  <span className="label" style={{ color: 'var(--c-primary)', fontWeight: 600 }}>Upcoming Events</span>
                 </div>
                 {[
                   { month: "APR", day: "22", title: "World Earth Day" },
@@ -443,9 +443,9 @@ export default function Home() {
                       )}
                     </div>
                     <div className="flex flex-col flex-1 p-5" style={{ background: 'var(--c-surface-raised)' }}>
-                      <span className="text-[10px] font-medium uppercase tracking-[0.08em] mb-2" style={{ fontFamily: 'var(--font-mono)', color: 'var(--c-accent)' }}>{news.date}</span>
-                      <h5 className="text-sm font-semibold leading-snug mb-2 transition-colors duration-200" style={{ color: 'var(--c-text-primary)' }}>{news.title}</h5>
-                      <p className="text-xs leading-relaxed opacity-60" style={{ color: 'var(--c-text-secondary)' }}>{news.desc}</p>
+                      <span className="text-[10px] font-bold uppercase tracking-[0.08em] mb-2" style={{ fontFamily: 'var(--font-mono)', color: 'var(--c-accent)' }}>{news.date}</span>
+                      <h5 className="text-sm font-semibold leading-snug mb-2 transition-colors duration-200" style={{ color: 'var(--c-ink)' }}>{news.title}</h5>
+                      <p className="text-xs leading-relaxed" style={{ color: 'var(--c-text-secondary)' }}>{news.desc}</p>
                     </div>
                   </Link>
                 </ScrollReveal>
@@ -717,8 +717,8 @@ export default function Home() {
                 At AJAS, I found an environment that doesn't just teach subjects, but cultivates the mind and character. It prepared me for the world with confidence.
               </p>
               <div className="flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full mb-4 overflow-hidden" style={{ border: '2px solid var(--c-accent)' }}>
-                  <img src="/images/principle-image.jpeg" alt="Student" className="w-full h-full object-cover grayscale" />
+                <div className="w-16 h-16 rounded-full mb-4 overflow-hidden flex items-center justify-center bg-white/10" style={{ border: '2px solid var(--c-accent)' }}>
+                  <UserIcon size={32} className="text-white/40" />
                 </div>
                 <p className="font-semibold text-base">Safwan Ahmed</p>
                 <p className="text-xs uppercase tracking-widest mt-1 opacity-50" style={{ fontFamily: 'var(--font-mono)' }}>BCA Graduate, Batch 2023</p>
@@ -791,7 +791,7 @@ export default function Home() {
         <img src="/images/activities.png" alt="Student Activities" className="w-full h-full object-cover" />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(11,17,32,0.7) 0%, transparent 50%)' }} />
         <div className="absolute bottom-0 left-0 p-10">
-          <h3 className="text-white font-medium">Nurturing talent & leadership</h3>
+          <h3 className="text-white font-medium" style={{ color: '#FFFFFF' }}>Nurturing talent & leadership</h3>
         </div>
       </div>
     </ScrollReveal>
