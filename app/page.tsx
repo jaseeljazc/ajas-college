@@ -218,7 +218,7 @@ export default function Home() {
                 <div className="p-8 relative overflow-hidden" style={{ background: 'var(--c-surface-raised)', border: '1px solid var(--c-border)', borderRadius: 'var(--radius-lg)' }}>
                   <div className="flex items-start gap-5">
                     <div className="w-16 h-16 rounded-full overflow-hidden shrink-0" style={{ border: '2px solid var(--c-border)' }}>
-                      <img src="/images/principal.png" alt="Principal" className="w-full h-full object-cover" />
+                      <img src="/images/principal_new.png" alt="Principal" className="w-full h-full object-cover" />
                     </div>
                     <div>
                       <p className="font-semibold text-base" style={{ color: 'var(--c-text-primary)' }}>Dr. C.K. Abdul Rabbi Nistar</p>
@@ -464,7 +464,7 @@ export default function Home() {
             <ScrollReveal className="h-full">
               <div className="p-6 sm:p-10 h-full" style={{ background: 'var(--c-primary)', borderRadius: 'var(--radius-lg)', color: 'var(--c-text-inverse)' }}>
                 <p className="text-xs font-medium uppercase tracking-[0.12em] mb-2" style={{ fontFamily: 'var(--font-mono)', color: 'var(--c-accent)' }}>Notices</p>
-                <h2 className="mb-10" style={{ fontFamily: 'var(--font-display)', fontSize: '1.75rem' }}>Notifications</h2>
+                <h2 className="mb-10" style={{ fontFamily: 'var(--font-display)', fontSize: '1.75rem', color: 'var(--c-text-inverse)' }}>Notifications</h2>
                 <div className="flex flex-col gap-4">
                   {[
                     { title: "Admission Open for FYUG Programmes 2026-27", date: "May 5, 2026", isNew: true },
@@ -728,40 +728,75 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── CLUBS ──────────────────────────────── */}
-      <section className="py-16 md:py-24 lg:py-32" style={{ background: 'var(--c-surface)' }}>
-        <div className="max-w-7xl mx-auto px-6 md:px-16">
-          <ScrollReveal>
-            <div className="mb-16">
-              <p className="label mb-6">Beyond Academics</p>
-              <h2 className="">Clubs & Forums</h2>
-            </div>
-          </ScrollReveal>
+    {/* ── CLUBS ──────────────────────────────── */}
+<section className="py-16 md:py-24 lg:py-32" style={{ background: 'var(--c-surface)' }}>
+  <div className="max-w-7xl mx-auto px-6 md:px-16">
+    <ScrollReveal>
+      <div className="mb-16">
+        <p className="label mb-6">Beyond Academics</p>
+        <h2>Clubs & Forums</h2>
+      </div>
+    </ScrollReveal>
 
-          <ScrollReveal delay={0.1}>
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-16">
-              {[
-                "Arts Club", "Health Club", "Nature Club", "Music Club", "Literary Club",
-                "Women's Cell", "Coding Club", "Film Club", "Sports Club", "NSS", "IEDC", "Debate Club"
-              ].map((club, i) => (
-                <div key={i} className="px-6 py-4 text-center text-xs font-semibold uppercase tracking-wider transition-colors duration-200 hover:bg-[var(--c-primary)] hover:text-white" style={{ border: '1px solid var(--c-border)', borderRadius: 'var(--radius-sm)', background: 'var(--c-surface-raised)', color: 'var(--c-text-secondary)' }}>
-                  {club}
-                </div>
-              ))}
-            </div>
-          </ScrollReveal>
+    <ScrollReveal delay={0.1}>
+      <div className="mb-16">
+        {[
+          { name: "Arts Club",      tag: "Creative" },
+          { name: "Health Club",    tag: "Wellness" },
+          { name: "Nature Club",    tag: "Environment" },
+          { name: "Music Club",     tag: "Creative" },
+          { name: "Literary Club",  tag: "Academics" },
+          { name: "Women's Cell",   tag: "Community" },
+          { name: "Coding Club",    tag: "Technology" },
+          { name: "Film Club",      tag: "Creative" },
+          { name: "Sports Club",    tag: "Athletics" },
+          { name: "NSS",            tag: "Social" },
+          { name: "IEDC",           tag: "Entrepreneurship" },
+          { name: "Debate Club",    tag: "Academics" },
+        ].map((club, i) => (
+          <div
+            key={i}
+            className="group flex items-center border-t last:border-b transition-colors duration-200 hover:bg-[var(--c-surface-raised)] overflow-hidden"
+            style={{ borderColor: 'var(--c-border)' }}
+          >
+            {/* Hover accent bar */}
+            <div className="w-0 group-hover:w-[3px] self-stretch bg-[var(--c-primary)] transition-all duration-200 flex-shrink-0" />
 
-          <ScrollReveal delay={0.2}>
-            <div className="relative h-[400px] overflow-hidden" style={{ borderRadius: 'var(--radius-lg)' }}>
-              <img src="/images/activities.png" alt="Student Activities" className="w-full h-full object-cover" />
-              <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(11,17,32,0.7) 0%, transparent 50%)' }} />
-              <div className="absolute bottom-0 left-0 p-10">
-                <h3 className="text-white font-medium">Nurturing talent & leadership</h3>
-              </div>
-            </div>
-          </ScrollReveal>
+            {/* Index number */}
+            <span className="text-[11px] font-medium tracking-wide opacity-40 group-hover:opacity-100 transition-opacity duration-200 w-12 text-right px-4 flex-shrink-0" style={{ color: 'var(--c-text-secondary)' }}>
+              {String(i + 1).padStart(2, '0')}
+            </span>
+
+            {/* Club name */}
+            <span className="flex-1 py-4 text-[15px] font-medium tracking-tight transition-colors duration-200" style={{ color: 'var(--c-text-secondary)' }}>
+              {club.name}
+            </span>
+
+            {/* Category tag */}
+            <span className="text-[11px] font-medium uppercase tracking-widest px-3 py-1 mr-5 flex-shrink-0" style={{ border: '1px solid var(--c-border)', borderRadius: '99px', color: 'var(--c-text-secondary)' }}>
+              {club.tag}
+            </span>
+
+            {/* Arrow */}
+            <span className="mr-5 text-sm opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 flex-shrink-0" style={{ color: 'var(--c-text-secondary)' }}>
+              →
+            </span>
+          </div>
+        ))}
+      </div>
+    </ScrollReveal>
+
+    <ScrollReveal delay={0.2}>
+      <div className="relative h-[400px] overflow-hidden" style={{ borderRadius: 'var(--radius-lg)' }}>
+        <img src="/images/activities.png" alt="Student Activities" className="w-full h-full object-cover" />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(11,17,32,0.7) 0%, transparent 50%)' }} />
+        <div className="absolute bottom-0 left-0 p-10">
+          <h3 className="text-white font-medium">Nurturing talent & leadership</h3>
         </div>
-      </section>
+      </div>
+    </ScrollReveal>
+  </div>
+</section>
 
       {/* ── FINAL CTA ──────────────────────────── */}
       <section className="py-16 md:py-24 lg:py-32" style={{ background: 'var(--c-surface)' }}>
@@ -773,7 +808,7 @@ export default function Home() {
               
               <div className="relative z-10 max-w-3xl mx-auto">
                 <p className="text-xs font-medium uppercase tracking-[0.3em] mb-6" style={{ fontFamily: 'var(--font-mono)', color: 'var(--c-accent)' }}>Admissions 2026-27</p>
-                <h2 className="mb-8">
+                <h2 className="mb-8" style={{ color: 'var(--c-text-inverse)' }}>
                   Ready to start your future at AJAS?
                 </h2>
                 <p className="text-base md:text-lg mb-10 opacity-80 max-w-xl mx-auto leading-relaxed">

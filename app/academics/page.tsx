@@ -175,10 +175,8 @@ export default function AcademicsPage() {
                 <div
                   className="bg-white border border-[#e5e7eb] rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col group h-full"
                 >
-                  <div className="aspect-video bg-[#f3f4f6] flex items-center justify-center border-b border-[#e5e7eb] relative">
-                    <span className="text-[10px] font-medium text-[#9ca3af]">
-                      Department Photo Placeholder
-                    </span>
+                  <div className="aspect-video relative overflow-hidden border-b border-[#e5e7eb]">
+                    <img src="/images/department_placeholder.png" alt={dept.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                   </div>
                   <div className="p-6 flex flex-col flex-grow">
                     <h4 className="text-xl font-semibold text-[#111827] mb-2">
@@ -246,8 +244,8 @@ export default function AcademicsPage() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.3} className="mt-12">
-            <div>
-              <ImagePlaceholder label="Faculty Group Photo" size="Wide View" />
+            <div className="aspect-[21/9] w-full rounded-2xl overflow-hidden border border-[#e5e7eb] shadow-lg">
+              <img src="/images/faculty_group_photo.png" alt="Faculty Group Photo" className="w-full h-full object-cover" />
             </div>
           </ScrollReveal>
         </div>

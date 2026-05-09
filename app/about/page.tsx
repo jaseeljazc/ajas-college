@@ -195,7 +195,7 @@ export default function AboutPage() {
             <ScrollReveal className="lg:col-span-1">
               <div className="bg-white border border-[#e5e7eb] rounded-2xl p-6 text-center shadow-sm h-full">
                 <div className="w-32 h-32 rounded-full bg-[#f3f4f6] mx-auto mb-4 overflow-hidden border border-[#e5e7eb]">
-                   <img src="/images/principal.png" alt="Principal" className="w-full h-full object-cover" />
+                   <img src="/images/principal_new.png" alt="Principal" className="w-full h-full object-cover" />
                 </div>
                 <h4 className="text-lg font-semibold text-[#111827]">Dr. C.K. Abdul Rabbi Nistar</h4>
                 <p className="text-xs text-[#263866] font-medium uppercase tracking-widest mt-1">Principal</p>
@@ -207,7 +207,7 @@ export default function AboutPage() {
           </div>
           <ScrollReveal delay={0.3}>
             <div className="aspect-[3/1] w-full rounded-2xl overflow-hidden border border-[#e5e7eb] shadow-md">
-               <img src="/images/team.png" alt="Administration Team" className="w-full h-full object-cover" />
+               <img src="/images/faculty_group_photo.png" alt="Administration Team" className="w-full h-full object-cover" />
             </div>
           </ScrollReveal>
         </div>

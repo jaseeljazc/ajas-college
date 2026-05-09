@@ -39,6 +39,7 @@ export default function DepartmentPage() {
         heading={deptName}
         subtext={`Welcome to the Department of ${deptName} at Al Jamia Arts & Science College.`}
         showImage={true}
+        bgImage="/images/department_placeholder.png"
       />
 
       {/* About Department */}

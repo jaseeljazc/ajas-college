@@ -51,7 +51,8 @@ export default function InfrastructurePage() {
       heading: "Geography Lab",
       desc: "Equipped with traditional and modern tools for spatial analysis.",
       features: ["GIS Software Workstations", "Surveying Instruments", "Extensive Map Collection", "Weather Station Data"],
-      imageLabel: "Geography Mapping Lab"
+      imageLabel: "Geography Mapping Lab",
+      imagePath: "/images/geography_lab.png"
     },
     {
       id: "hostel",
@@ -66,14 +67,14 @@ export default function InfrastructurePage() {
 
   return (
     <div className="flex flex-col">
-      <PageHero
+      {/* <PageHero
         breadcrumbs={[{ label: "Infrastructure" }]}
         label="FACILITIES"
         heading="Campus Infrastructure"
         subtext="Modern, well-equipped, and technology-driven infrastructure designed to support academic and personal growth."
         showImage={true}
         bgImage="/images/infrastructure_hero_new.png"
-      />
+      /> */}
 
       {/* Overview */}
       <section className="py-16 md:py-24 bg-[#f1f5f9]">

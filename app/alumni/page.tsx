@@ -19,12 +19,9 @@ export default function AlumniPage() {
               <p className="text-[#6b7280]">Connecting graduates across the globe. Stay in touch, give back, and grow with your alma mater.</p>
             </div>
             <div className="w-full md:w-1/2">
-              <div className="w-full h-[240px] bg-[#f3f4f6] rounded-2xl flex flex-col items-center justify-center border border-dashed border-[#d1d5db]">
-                <ImageIcon size={36} className="text-[#9ca3af] mb-3" />
-                <p className="text-sm text-[#9ca3af] font-medium">Alumni Meet — 800×480px</p>
-                <p className="text-xs text-[#d1d5db]">Size recommendation</p>
+              <div className="w-full h-[320px] rounded-2xl overflow-hidden border border-[#e5e7eb] shadow-lg">
+                <img src="/images/alumni_hero.png" alt="Alumni Meet" className="w-full h-full object-cover" />
               </div>
-              <p className="text-xs text-[#9ca3af] mt-2 text-center">[Replace with actual photo]</p>
             </div>
           </div>
         </div>
@@ -115,9 +112,8 @@ export default function AlumniPage() {
               <p className="text-[#6b7280] mb-6">
                 Are you an AJAS graduate? Register yourself to stay connected with batchmates, participate in alumni events, and contribute to the college.
               </p>
-              <div className="w-full h-[200px] bg-[#f3f4f6] rounded-xl flex flex-col items-center justify-center border border-[#e5e7eb]">
-                <ImageIcon size={24} className="text-[#9ca3af] mb-2" />
-                <p className="text-sm text-[#9ca3af] font-medium">Campus Memories Photo</p>
+              <div className="aspect-[16/9] w-full rounded-2xl overflow-hidden border border-[#e5e7eb] shadow-lg">
+                <img src="/images/campus_memories.png" alt="Campus Memories" className="w-full h-full object-cover" />
               </div>
             </div>
             
