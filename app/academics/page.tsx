@@ -244,7 +244,7 @@ export default function AcademicsPage() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.3} className="mt-12">
-            <div className="aspect-[21/9] w-full rounded-2xl overflow-hidden border border-[#e5e7eb] shadow-lg">
+            <div className="aspect-[3/2] md:aspect-[21/9] w-full rounded-2xl overflow-hidden border border-[#e5e7eb] shadow-lg">
               <img src="/images/faculty_group_photo.png" alt="Faculty Group Photo" className="w-full h-full object-cover" />
             </div>
           </ScrollReveal>

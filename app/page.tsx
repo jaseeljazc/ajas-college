@@ -218,7 +218,7 @@ export default function Home() {
                 <div className="p-8 relative overflow-hidden" style={{ background: 'var(--c-surface-raised)', border: '1px solid var(--c-border)', borderRadius: 'var(--radius-lg)' }}>
                   <div className="flex items-start gap-5">
                     <div className="w-16 h-16 rounded-full overflow-hidden shrink-0" style={{ border: '2px solid var(--c-border)' }}>
-                      <img src="/images/principal_new.png" alt="Principal" className="w-full h-full object-cover" />
+                      <img src="/images/principle-image.jpeg" alt="Principal" className="w-full h-full object-cover" />
                     </div>
                     <div>
                       <p className="font-semibold text-base" style={{ color: 'var(--c-text-primary)' }}>Dr. C.K. Abdul Rabbi Nistar</p>
@@ -718,7 +718,7 @@ export default function Home() {
               </p>
               <div className="flex flex-col items-center">
                 <div className="w-16 h-16 rounded-full mb-4 overflow-hidden" style={{ border: '2px solid var(--c-accent)' }}>
-                  <img src="/images/principal.png" alt="Student" className="w-full h-full object-cover grayscale" />
+                  <img src="/images/principle-image.jpeg" alt="Student" className="w-full h-full object-cover grayscale" />
                 </div>
                 <p className="font-semibold text-base">Safwan Ahmed</p>
                 <p className="text-xs uppercase tracking-widest mt-1 opacity-50" style={{ fontFamily: 'var(--font-mono)' }}>BCA Graduate, Batch 2023</p>
