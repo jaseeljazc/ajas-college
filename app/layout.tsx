@@ -28,12 +28,35 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://ajascollege.ac.in'),
   title: "Al Jamia Arts & Science College — Perinthalmanna",
   description:
     "A premier minority institution of higher learning in Kerala, affiliated to the University of Calicut. 14 UG & PG programmes in Commerce, Science, Arts, and Technology.",
   icons: {
     icon: "/images/logo.jpg",
     apple: "/images/logo.jpg",
+  },
+  openGraph: {
+    title: "Al Jamia Arts & Science College — Perinthalmanna",
+    description: "A premier minority institution of higher learning in Kerala, affiliated to the University of Calicut.",
+    url: "https://ajascollege.ac.in",
+    siteName: "AJAS College",
+    images: [
+      {
+        url: "/images/logo.jpg",
+        width: 512,
+        height: 512,
+        alt: "AJAS College Logo",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Al Jamia Arts & Science College",
+    description: "A premier minority institution of higher learning in Kerala.",
+    images: ["/images/logo.jpg"],
   },
 };
 
