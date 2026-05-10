@@ -70,6 +70,32 @@ export default function GrievancePage() {
                   </div>
                 </div>
               </ScrollReveal>
+
+              {/* Anti-Ragging Section */}
+              <ScrollReveal delay={0.3}>
+                <div className="mt-12 bg-red-50 border border-red-100 rounded-2xl p-8">
+                  <SectionHeader label="ZERO TOLERANCE" heading="Anti-Ragging Policy" />
+                  <div className="prose prose-sm text-[#4b5563] max-w-none mt-6">
+                    <p className="font-medium text-red-900 mb-4 border-l-4 border-red-500 pl-4">
+                      Al Jamia Arts & Science College strictly adheres to a "Zero Tolerance" policy towards ragging, in accordance with the UGC Regulations on curbing the menace of ragging in higher educational institutions.
+                    </p>
+                    <p>
+                      Any student found guilty of ragging or abetting ragging will face severe disciplinary action, which may include suspension, rustication, and filing of an FIR with the local police.
+                    </p>
+                    
+                    <h4 className="text-[#111827] font-semibold mt-6 mb-3">Anti-Ragging Committee & Helpline</h4>
+                    <ul className="list-disc pl-5 space-y-2 mb-6">
+                      <li><strong>Committee:</strong> The college has a dedicated Anti-Ragging Committee comprising the Principal, senior faculty, police representatives, and student representatives.</li>
+                      <li><strong>National Helpline:</strong> 1800-180-5522 (Toll-Free)</li>
+                      <li><strong>Email Helpline:</strong> helpline@antiragging.in</li>
+                    </ul>
+                    
+                    <Link href="/pdf/Anti_Ragging_Policy.pdf" className="inline-flex items-center gap-2 text-sm font-bold text-red-700 hover:text-red-900 transition-colors uppercase tracking-widest">
+                      Download Official Policy Document <ArrowRight size={14} />
+                    </Link>
+                  </div>
+                </div>
+              </ScrollReveal>
             </div>
 
             {/* Sidebar */}

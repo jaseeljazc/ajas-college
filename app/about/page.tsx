@@ -21,13 +21,14 @@ export default function AboutPage() {
   ];
 
   const disclosures = [
-    { name: "University Affiliation Letter", year: "2024-25" },
-    { name: "RTI Declaration & Disclosure", year: "2024" },
-    { name: "Minority Institution Certificate", year: "Permanent" },
-    { name: "ISO 9001:2015 Certificate", year: "Valid 2026" },
-    { name: "Government NOC Documents", year: "2010" },
-    { name: "UGC 2(F) Recognition Document", year: "Updated" },
-    { name: "College Performance Audit (CPA)", year: "2024-25" },
+    { name: "Mandatory Disclosure Document (UGC/AICTE Norms)", year: "2024-25", href: "/pdf/Mandatory_Disclosure.pdf" },
+    { name: "RTI Declaration & Disclosure", year: "2024", href: "/pdf/RTI_Information.pdf" },
+    { name: "Anti-Ragging Committee & Policy", year: "2024", href: "/pdf/Anti_Ragging_Policy.pdf" },
+    { name: "University Affiliation Letter", year: "2024-25", href: "#" },
+    { name: "Minority Institution Certificate", year: "Permanent", href: "#" },
+    { name: "ISO 9001:2015 Certificate", year: "Valid 2026", href: "#" },
+    { name: "Government NOC Documents", year: "2010", href: "#" },
+    { name: "UGC 2(F) Recognition Document", year: "Updated", href: "#" },
   ];
 
   return (
@@ -428,7 +429,8 @@ export default function AboutPage() {
             </span>
 
             {/* Download */}
-            <button
+            <a
+              href={doc.href}
               className="flex items-center gap-1.5 text-xs font-medium transition-opacity duration-150 opacity-60 group-hover:opacity-100"
               style={{ color: "var(--c-text-primary)" }}
             >
@@ -438,7 +440,7 @@ export default function AboutPage() {
                 <line x1="12" y1="15" x2="12" y2="3" />
               </svg>
               Download
-            </button>
+            </a>
           </div>
         </ScrollReveal>
       ))}

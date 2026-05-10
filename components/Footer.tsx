@@ -108,16 +108,21 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-12">
           {/* Col 1 */}
           <div>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-full overflow-hidden bg-[#fdfbf9] flex flex-col items-center justify-center border border-white/20">
-                <img
-                  src="/images/logo.jpg"
-                  alt="Al Jamia Logo"
-                  className="w-full h-full object-contain p-1"
-                />
+            <div className="flex flex-col items-start gap-1 mb-6">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-full overflow-hidden bg-[#fdfbf9] flex flex-col items-center justify-center border border-white/20">
+                  <img
+                    src="/images/logo.jpg"
+                    alt="Al Jamia Logo"
+                    className="w-full h-full object-contain p-1"
+                  />
+                </div>
+                <span className="font-semibold text-lg text-white">
+                  AJAS College
+                </span>
               </div>
-              <span className="font-semibold text-lg text-white">
-                AJAS College
+              <span className="text-xs font-bold px-3 py-1 mt-2 rounded-full tracking-widest uppercase" style={{ background: "rgba(200,162,78,0.15)", color: "var(--c-accent)", border: "1px solid rgba(200,162,78,0.3)" }}>
+                NAAC B++ Accredited
               </span>
             </div>
             <div className="text-sm text-white/60 space-y-2 mb-6">
@@ -303,6 +308,30 @@ export default function Footer() {
                 >
                   NAAC
                 </a>
+              </li>
+              <li>
+                <Link
+                  href="/pdf/Mandatory_Disclosure.pdf"
+                  className="text-sm text-white/60 hover:text-white transition"
+                >
+                  Mandatory Disclosure
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/pdf/RTI_Information.pdf"
+                  className="text-sm text-white/60 hover:text-white transition"
+                >
+                  RTI Information
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/pdf/Anti_Ragging_Policy.pdf"
+                  className="text-sm text-white/60 hover:text-white transition"
+                >
+                  Anti-Ragging Policy
+                </Link>
               </li>
               <li>
                 <a

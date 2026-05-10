@@ -113,6 +113,33 @@ export default function ResearchPage() {
           </div>
         </div>
       </section>
+
+      {/* Collaborations & MoUs */}
+      <section className="page-section" style={{ background: "var(--c-surface-raised)", borderTop: "1px solid var(--c-border)" }}>
+        <div className="max-w-7xl mx-auto px-6 md:px-16">
+          <ScrollReveal>
+            <p className="label mb-4">Partnerships</p>
+            <h2 className="mb-12">Academic Collaborations & MoUs</h2>
+            <p className="text-base leading-relaxed mb-10 max-w-3xl" style={{ color: "var(--c-text-secondary)" }}>
+              Al Jamia Arts & Science College has established strategic Memorandums of Understanding (MoUs) with leading academic institutions, research centers, and industry bodies. These collaborations facilitate student exchange programs, joint research initiatives, and faculty development, significantly enhancing the academic ecosystem.
+            </p>
+          </ScrollReveal>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { name: "Kerala Forest Research Institute (KFRI)", type: "Research Collaboration" },
+              { name: "National Institute of Technology, Calicut", type: "Academic MoU" },
+              { name: "Edapt Innovation Council", type: "Industry Partnership" }
+            ].map((mou, i) => (
+              <ScrollReveal key={i} delay={i * 0.1}>
+                <div className="p-6 transition-all duration-300 hover:-translate-y-1" style={{ background: "var(--c-surface)", border: "1px solid var(--c-border)", borderRadius: "var(--radius-md)" }}>
+                  <h4 className="text-sm font-bold mb-2" style={{ color: "var(--c-text-primary)" }}>{mou.name}</h4>
+                  <p className="text-[10px] font-bold uppercase tracking-widest" style={{ color: "var(--c-primary)", fontFamily: "var(--font-mono)" }}>{mou.type}</p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

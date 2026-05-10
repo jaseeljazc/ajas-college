@@ -89,7 +89,7 @@ export default function CampusParallaxGallery() {
           {CAMPUS_IMAGES.map((img, i) => (
             <div
               key={i}
-              className={`${img.span} h-[450px] relative overflow-hidden group g2-card`}
+              className={`${img.span} h-[350px] md:h-[450px] relative overflow-hidden group g2-card`}
               style={{
                 borderRadius: "var(--radius-lg)",
                 border: "1px solid var(--c-border)",

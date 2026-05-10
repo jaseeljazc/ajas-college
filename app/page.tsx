@@ -98,7 +98,7 @@ export default function Home() {
       {/* ── HERO ─────────────────────────────── */}
       <section className="min-h-[calc(100vh-6rem)] md:min-h-[calc(100vh-7rem)] lg:min-h-[calc(100vh-6rem)] flex flex-col lg:grid lg:grid-cols-2 relative overflow-hidden">
         {/* Left — Content */}
-        <div className="flex-1 flex items-center px-6 md:px-16 lg:px-24 py-24 md:py-32 lg:py-0 relative z-10">
+        <div className="flex-1 flex items-center px-6 md:px-16 lg:px-24 pt-12 pb-16 md:py-32 lg:py-0 relative z-10">
           {/* Mobile Background Image & Overlay */}
           <div className="absolute inset-0 lg:hidden z-[-1] bg-[url('/images/hero.png')] bg-cover bg-center" />
           <div className="absolute inset-0 lg:hidden z-[-1] bg-white/90" />
@@ -111,20 +111,20 @@ export default function Home() {
           >
             <motion.p
               variants={rise}
-              className="label mb-8"
+              className="label mb-4 md:mb-8"
               style={{ color: "var(--c-accent)" }}
             >
               Est. 2010 — University of Calicut
             </motion.p>
 
-            <motion.h1 variants={rise} className="mb-8">
+            <motion.h1 variants={rise} className="mb-4 md:mb-8">
               Al Jamia Arts &<br />
               <span style={{ color: "var(--c-primary)" }}>Science College</span>
             </motion.h1>
 
             <motion.p
               variants={rise}
-              className="text-lg leading-relaxed mb-12 max-w-lg"
+              className="text-base md:text-lg leading-relaxed mb-8 md:mb-12 max-w-lg"
               style={{ color: "var(--c-text-secondary)" }}
             >
               Perinthalmanna, Malappuram, Kerala — a premier minority
@@ -151,7 +151,7 @@ export default function Home() {
                 className="group w-full sm:w-auto px-8 py-4 text-sm font-semibold flex justify-center items-center gap-2 transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 text-center"
                 style={{
                   color: "var(--c-text-primary)",
-                  border: "1px solid var(--c-border)",
+                  border: "2px solid var(--c-border)",
                   borderRadius: "var(--radius-md)",
                 }}
               >
@@ -166,15 +166,16 @@ export default function Home() {
             {/* Stats as typography, not tiles */}
             <motion.div
               variants={rise}
-              className="flex gap-6 lg:gap-12 mt-16 pt-5"
+              className="grid grid-cols-2 lg:flex gap-x-12 gap-y-6 lg:gap-12 mt-10 lg:mt-16 pt-5"
               style={{ borderTop: "1px solid var(--c-border)" }}
             >
               {[
+                { num: "B++", label: "NAAC Grade" },
                 { num: "2000+", label: "Students" },
-                { num: "14", label: "Programmes" },
                 { num: "80+", label: "Faculty" },
+                { num: "14", label: "Programmes" },
               ].map((s, i) => (
-                <div key={i} className="flex items-center gap-3">
+                <div key={i} className={`items-center gap-3 ${i === 2 ? "flex lg:hidden" : "flex"}`}>
                   <span
                     className="text-3xl font-light"
                     style={{
