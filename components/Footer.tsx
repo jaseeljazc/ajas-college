@@ -1,4 +1,8 @@
+"use client";
+
+import { useState, useRef } from "react";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 const FacebookIcon = ({ size = 20 }: { size?: number }) => (
   <svg
@@ -81,15 +85,36 @@ const TwitterIcon = ({ size = 20 }: { size?: number }) => (
 );
 
 export default function Footer() {
+  const [isCenterHovered, setIsCenterHovered] = useState(false);
+  const mapRef = useRef<HTMLAnchorElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!mapRef.current) return;
+    
+    const rect = mapRef.current.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    
+    const distance = Math.sqrt(
+      Math.pow(e.clientX - centerX, 2) + Math.pow(e.clientY - centerY, 2)
+    );
+    
+    setIsCenterHovered(distance < 30); // Using 30px for slightly better UX while staying close to user's 20px request
+  };
+
   return (
-    <footer className="bg-[#263866] text-white py-16">
+    <footer className="bg-[var(--c-ink)] text-white py-16">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-12">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-12">
           {/* Col 1 */}
           <div>
             <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-12 rounded-full overflow-hidden bg-[#fdfbf9] flex flex-col items-center justify-center border border-white/20">
-                <img src="/images/logo.jpg" alt="Al Jamia Logo" className="w-full h-full object-contain p-1" />
+                <img
+                  src="/images/logo.jpg"
+                  alt="Al Jamia Logo"
+                  className="w-full h-full object-contain p-1"
+                />
               </div>
               <span className="font-semibold text-lg text-white">
                 AJAS College
@@ -290,8 +315,62 @@ export default function Footer() {
             </ul>
           </div>
         </div>
+      </div>
 
-        <div className="border-t border-white/10 pt-8 mt-16 flex flex-col md:flex-row justify-between items-center gap-4">
+      {/* Map Section - Full Width */}
+      <div 
+        ref={mapRef}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={() => setIsCenterHovered(false)}
+        className="w-full block relative group overflow-hidden"
+      >
+        <div
+          className="absolute inset-0 z-20 pointer-events-none"
+          style={{
+            background:
+              "linear-gradient(to bottom, var(--c-ink) 0%, transparent 20%, transparent 80%, var(--c-ink) 100%)",
+          }}
+        />
+        <div
+          className="absolute inset-0 z-20 pointer-events-none"
+          style={{
+            background: `
+              linear-gradient(to bottom, var(--c-ink) 0%, transparent 20%, transparent 80%, var(--c-ink) 100%),
+              linear-gradient(to right, var(--c-ink) 0%, transparent 20%, transparent 80%, var(--c-ink) 100%)
+            `,
+          }}
+        />
+        
+        {/* Hover Label - Only this is clickable */}
+        <a 
+          href="https://maps.app.goo.gl/UEcw1APCYXJzqsNj8" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className={`absolute inset-0 z-30 flex items-center justify-center transition-all duration-500 bg-black/10 ${
+            isCenterHovered ? "opacity-100 pointer-events-auto cursor-pointer" : "opacity-0 pointer-events-none"
+          }`}
+        >
+          <div 
+            className={`px-6 py-3 bg-[var(--c-primary)] text-white text-sm font-semibold rounded-full shadow-2xl flex items-center gap-2 transform transition-all duration-500 ${
+              isCenterHovered ? "translate-y-0 scale-100" : "translate-y-4 scale-90"
+            }`}
+          >
+            <span>View on Google Maps</span>
+            <ArrowRight size={16} />
+          </div>
+        </a>
+
+        <img
+          src="/images/map2.png"
+          alt="Campus Map"
+          className={`w-full h-[400px] md:h-[700px] object-cover opacity-90 transition-all duration-1000 ${
+            isCenterHovered ? "scale-105 opacity-100" : "scale-100"
+          }`}
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="border-t border-white/10 pt-8 mt-0 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-white/40 text-sm text-center md:text-left">
             © 2026 Al Jamia Arts & Science College. All Rights Reserved.
           </p>

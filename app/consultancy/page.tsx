@@ -1,148 +1,131 @@
 "use client";
 
 import Link from "next/link";
-import { User as UserIcon } from "lucide-react";
+import { User as UserIcon, MessageSquare, Briefcase, BarChart3, Database, Globe } from "lucide-react";
+import ScrollReveal from "@/components/ScrollReveal";
+import PageHero from "@/components/PageHero";
 
 export default function ConsultancyPage() {
   return (
-    <div className="flex flex-col">
-      {/* Page Hero */}
-      <section className="bg-white border-b border-[#f3f4f6] py-16">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="max-w-2xl">
-            <div className="text-xs text-[#9ca3af] mb-4">
-              <Link href="/" className="hover:text-[#263866] transition">Home</Link> → Consultancy
-            </div>
-            <h3 className="text-xs uppercase tracking-[0.2em] text-[#263866] font-medium mb-3">Academic & Industry Support</h3>
-            <h1 className="text-4xl font-semibold text-[#111827] mb-4">Consultancy Services</h1>
-            <p className="text-[#6b7280]">Leveraging academic expertise to provide specialized solutions for industry, government, and society.</p>
-          </div>
-        </div>
-      </section>
+    <div className="flex flex-col" style={{ background: "var(--c-surface)" }}>
+      <PageHero
+        breadcrumbs={[{ label: "Consultancy" }]}
+        label="ACADEMIC & INDUSTRY SUPPORT"
+        heading="Consultancy Services"
+        subtext="Leveraging academic expertise to provide specialized solutions for industry, government, and society."
+      />
 
-      {/* Expertise & Faculty */}
-      <section className="bg-[#fafafa] py-16 md:py-24 border-b border-[#f3f4f6]">
-        <div className="max-w-7xl mx-auto px-6">
-          <h3 className="text-xs uppercase tracking-[0.2em] text-[#263866] font-medium mb-3">Experts</h3>
-          <h2 className="text-3xl font-semibold text-[#111827] mb-8">Our Consultants</h2>
+      {/* Experts Grid */}
+      <section className="page-section" style={{ background: "var(--c-surface-raised)" }}>
+        <div className="max-w-7xl mx-auto px-6 md:px-16">
+          <ScrollReveal>
+            <p className="label mb-4">Experts</p>
+            <h2 className="mb-12">Our Consultant Panel</h2>
+          </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { name: "Dr. C.K. Abdul Rabbi Nistar", dept: "Management", expertise: "Strategic Planning, Leadership" },
-              { name: "Prof. Anitha M.", dept: "Psychology", expertise: "Counseling, Behavioral Analysis" },
-              { name: "Dr. Rajesh K.", dept: "Computer Science", expertise: "AI/ML, Data Analytics" },
-              { name: "Mr. Sameer T.", dept: "Islamic Finance", expertise: "Sharia Banking, Microfinance" },
-              { name: "Dr. Fathima S.", dept: "Microbiology", expertise: "Food Testing, Clinical Research" },
-              { name: "Prof. Haris P.", dept: "English", expertise: "Corporate Communication, Translation" }
+              { name: "Dr. C.K. Abdul Rabbi Nistar", dept: "Management", expertise: "Strategic Planning" },
+              { name: "Prof. Anitha M.", dept: "Psychology", expertise: "Behavioral Analysis" },
+              { name: "Dr. Rajesh K.", dept: "Computer Science", expertise: "AI/ML Solutions" },
+              { name: "Mr. Sameer T.", dept: "Islamic Finance", expertise: "Sharia Banking" },
+              { name: "Dr. Fathima S.", dept: "Microbiology", expertise: "Quality Control" },
+              { name: "Prof. Haris P.", dept: "English", expertise: "Corp. Communication" }
             ].map((faculty, i) => (
-              <div key={i} className="bg-white border border-[#e5e7eb] rounded-xl p-6 shadow-sm hover:shadow-md transition">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-full bg-[#f3f4f6] flex items-center justify-center border border-[#e5e7eb] shrink-0">
-                    <UserIcon size={20} className="text-[#9ca3af]" />
+              <ScrollReveal key={i} delay={i * 0.05}>
+                <div className="p-8 group h-full flex flex-col transition-all duration-300 hover:-translate-y-1" style={{ background: "var(--c-surface)", border: "1px solid var(--c-border)", borderRadius: "var(--radius-lg)" }}>
+                  <div className="flex items-center gap-5 mb-8">
+                    <div className="w-14 h-14 rounded-full flex items-center justify-center shrink-0" style={{ background: "var(--c-surface-raised)", border: "1px solid var(--c-border)" }}>
+                      <UserIcon size={20} style={{ color: "var(--c-text-tertiary)" }} />
+                    </div>
+                    <div>
+                      <h4 className="font-bold" style={{ color: "var(--c-text-primary)" }}>{faculty.name}</h4>
+                      <p className="text-[10px] uppercase font-bold tracking-widest mt-1" style={{ color: "var(--c-primary)", fontFamily: "var(--font-mono)" }}>{faculty.dept}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-semibold text-[#111827]">{faculty.name}</h4>
-                    <p className="text-xs text-[#6b7280]">{faculty.dept}</p>
+                  <div className="mb-8 flex-1">
+                    <p className="text-[10px] uppercase font-bold tracking-widest mb-1" style={{ color: "var(--c-text-tertiary)", fontFamily: "var(--font-mono)" }}>Core Expertise</p>
+                    <p className="text-base font-medium" style={{ color: "var(--c-text-secondary)" }}>{faculty.expertise}</p>
                   </div>
+                  <button className="btn-outline w-full py-3 text-xs tracking-widest font-bold">
+                    REQUEST ADVISORY
+                  </button>
                 </div>
-                <div className="mb-6">
-                  <p className="text-xs text-[#4b5563]">Expertise:</p>
-                  <p className="text-sm font-medium text-[#111827]">{faculty.expertise}</p>
-                </div>
-                <button className="w-full py-2 border border-[#e5e7eb] rounded-lg text-sm text-[#374151] hover:border-[#263866] hover:text-[#263866] transition font-medium">
-                  Request Consultation
-                </button>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Projects & Form */}
-      <section className="bg-white py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
+      {/* Portfolio & Form */}
+      <section className="page-section" style={{ background: "var(--c-surface)", borderTop: "1px solid var(--c-border)" }}>
+        <div className="max-w-7xl mx-auto px-6 md:px-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
             
             {/* Active Projects */}
-            <div>
-              <h3 className="text-xs uppercase tracking-[0.2em] text-[#263866] font-medium mb-3">Portfolio</h3>
-              <h2 className="text-3xl font-semibold text-[#111827] mb-8">Ongoing Projects</h2>
+            <ScrollReveal>
+              <p className="label mb-4">Portfolio</p>
+              <h2 className="mb-8">Ongoing Projects</h2>
 
-              <div className="border border-[#e5e7eb] rounded-xl overflow-hidden mb-8">
+              <div className="overflow-hidden mb-10" style={{ border: "1px solid var(--c-border)", borderRadius: "var(--radius-lg)" }}>
                 <table className="w-full text-left text-sm">
-                  <thead className="bg-[#f9fafb] border-b border-[#e5e7eb]">
+                  <thead style={{ background: "var(--c-surface-raised)", borderBottom: "1px solid var(--c-border)" }}>
                     <tr>
-                      <th className="px-4 py-3 font-medium text-[#6b7280]">Project Title</th>
-                      <th className="px-4 py-3 font-medium text-[#6b7280]">Client</th>
+                      <th className="px-6 py-4 text-[10px] uppercase font-bold tracking-widest" style={{ color: "var(--c-text-tertiary)", fontFamily: "var(--font-mono)" }}>Project Title</th>
+                      <th className="px-6 py-4 text-[10px] uppercase font-bold tracking-widest" style={{ color: "var(--c-text-tertiary)", fontFamily: "var(--font-mono)" }}>Client</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[#f3f4f6]">
-                    <tr className="hover:bg-[#fafafa] transition">
-                      <td className="px-4 py-4 text-[#111827] font-medium">Retail Customer Behavior Analysis</td>
-                      <td className="px-4 py-4 text-[#4b5563]">Lulu Hypermarket</td>
-                    </tr>
-                    <tr className="hover:bg-[#fafafa] transition">
-                      <td className="px-4 py-4 text-[#111827] font-medium">Water Quality Testing in Perinthalmanna</td>
-                      <td className="px-4 py-4 text-[#4b5563]">Local Municipality</td>
-                    </tr>
-                    <tr className="hover:bg-[#fafafa] transition">
-                      <td className="px-4 py-4 text-[#111827] font-medium">Islamic Microfinance Feasibility Study</td>
-                      <td className="px-4 py-4 text-[#4b5563]">Kerala State Cooperative</td>
-                    </tr>
+                  <tbody style={{ background: "var(--c-surface)" }}>
+                    {[
+                      { title: "Behavior Analysis", client: "Retail Chain" },
+                      { title: "Water Quality Testing", client: "Municipality" },
+                      { title: "Finance Feasibility", client: "State Coop" }
+                    ].map((p, i, arr) => (
+                      <tr key={i} style={{ borderBottom: i < arr.length - 1 ? "1px solid var(--c-border)" : "none" }}>
+                        <td className="px-6 py-5 font-medium" style={{ color: "var(--c-text-primary)" }}>{p.title}</td>
+                        <td className="px-6 py-5 font-bold" style={{ color: "var(--c-primary)" }}>{p.client}</td>
+                      </tr>
+                    ))}
                   </tbody>
                 </table>
               </div>
 
-              <div className="border border-[#e5e7eb] rounded-lg p-4 bg-[#fafafa]">
-                <h4 className="text-sm font-semibold text-[#111827] mb-2">UGC Guidelines</h4>
-                <p className="text-xs text-[#6b7280] leading-relaxed">
-                  All consultancy services are provided in adherence to University Grants Commission (UGC) and University of Calicut norms. Revenue sharing is strictly based on the institutional consultancy policy.
-                </p>
+              <div className="p-8 flex gap-5 items-start" style={{ background: "var(--c-surface-raised)", border: "1px solid var(--c-border)", borderRadius: "var(--radius-md)" }}>
+                <Database size={20} style={{ color: "var(--c-accent)" }} className="shrink-0 mt-1" />
+                <div>
+                  <h4 className="text-sm font-bold mb-1" style={{ color: "var(--c-text-primary)" }}>UGC Norms Compliance</h4>
+                  <p className="text-xs leading-relaxed" style={{ color: "var(--c-text-secondary)" }}>All services adhere to UGC and University of Calicut guidelines for institutional consultancy.</p>
+                </div>
               </div>
-            </div>
+            </ScrollReveal>
 
             {/* Request Form */}
-            <div>
-              <div className="bg-[#fafafa] border border-[#e5e7eb] rounded-xl p-8 shadow-sm">
-                <h3 className="text-xs uppercase tracking-[0.2em] text-[#263866] font-medium mb-3">Inquiry</h3>
-                <h2 className="text-2xl font-semibold text-[#111827] mb-6">Submit a Request</h2>
+            <ScrollReveal delay={0.2}>
+              <div className="p-10 card-base" style={{ background: "var(--c-surface-raised)" }}>
+                <p className="label mb-4">Inquiry</p>
+                <h3 className="text-2xl font-bold mb-8" style={{ color: "var(--c-text-primary)" }}>Submit a Proposal</h3>
                 
-                <form className="space-y-4">
-                  <div className="grid grid-cols-2 gap-4">
+                <form className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="text-sm font-medium text-[#374151] mb-1.5 block">Organization</label>
-                      <input type="text" className="w-full border border-[#e5e7eb] rounded-lg px-4 py-2.5 bg-white focus:border-[#263866] focus:ring-1 focus:ring-[#263866] outline-none text-sm" />
+                      <label className="text-[10px] font-bold uppercase tracking-widest mb-2 block" style={{ color: "var(--c-text-secondary)", fontFamily: "var(--font-mono)" }}>Organization</label>
+                      <input type="text" className="input-base" style={{ background: "var(--c-surface)" }} />
                     </div>
                     <div>
-                      <label className="text-sm font-medium text-[#374151] mb-1.5 block">Contact Person</label>
-                      <input type="text" className="w-full border border-[#e5e7eb] rounded-lg px-4 py-2.5 bg-white focus:border-[#263866] focus:ring-1 focus:ring-[#263866] outline-none text-sm" />
+                      <label className="text-[10px] font-bold uppercase tracking-widest mb-2 block" style={{ color: "var(--c-text-secondary)", fontFamily: "var(--font-mono)" }}>Contact Person</label>
+                      <input type="text" className="input-base" style={{ background: "var(--c-surface)" }} />
                     </div>
                   </div>
                   <div>
-                    <label className="text-sm font-medium text-[#374151] mb-1.5 block">Email</label>
-                    <input type="email" className="w-full border border-[#e5e7eb] rounded-lg px-4 py-2.5 bg-white focus:border-[#263866] focus:ring-1 focus:ring-[#263866] outline-none text-sm" />
+                    <label className="text-[10px] font-bold uppercase tracking-widest mb-2 block" style={{ color: "var(--c-text-secondary)", fontFamily: "var(--font-mono)" }}>Requirements</label>
+                    <textarea rows={4} className="input-base" style={{ background: "var(--c-surface)" }} placeholder="Project scope and timeline..."></textarea>
                   </div>
-                  <div>
-                    <label className="text-sm font-medium text-[#374151] mb-1.5 block">Relevant Department</label>
-                    <select className="w-full border border-[#e5e7eb] rounded-lg px-4 py-2.5 bg-white focus:border-[#263866] focus:ring-1 focus:ring-[#263866] outline-none text-sm">
-                      <option>Select Department</option>
-                      <option>Computer Science / AI</option>
-                      <option>Management / BBA / BCom</option>
-                      <option>Microbiology / Food Tech</option>
-                      <option>Psychology</option>
-                      <option>Languages</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium text-[#374151] mb-1.5 block">Project Requirements</label>
-                    <textarea rows={4} className="w-full border border-[#e5e7eb] rounded-lg px-4 py-2.5 bg-white focus:border-[#263866] focus:ring-1 focus:ring-[#263866] outline-none text-sm"></textarea>
-                  </div>
-                  <button type="button" className="w-full bg-[#263866] text-white rounded-lg py-3 px-6 text-sm font-medium hover:bg-[#1e40af] transition mt-2">
-                    Send Request
+                  <button type="button" className="btn-primary w-full py-4 tracking-widest">
+                    SEND CONSULTANCY REQUEST
                   </button>
                 </form>
               </div>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>

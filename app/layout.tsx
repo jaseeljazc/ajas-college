@@ -49,7 +49,7 @@ export default function RootLayout({
         style={{ fontFamily: "var(--font-body)" }}
       >
         <Navbar />
-        <main className="flex-grow">
+        <main className="flex-grow pt-24 md:pt-28 lg:pt-24">
           <PageTransition>{children}</PageTransition>
         </main>
         <Footer />
@@ -60,3 +60,4 @@ export default function RootLayout({
     </html>
   );
 }
+

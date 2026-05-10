@@ -2,14 +2,25 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Menu, X, ChevronDown, Plus, Minus, Search, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
   const pathname = usePathname();
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navGroups = [
     {
@@ -39,6 +50,7 @@ export default function Navbar() {
         { name: "Academic Calendar", href: "/academics#calendar" },
         { name: "Add-On Courses", href: "/academics#addon" },
         { name: "Toppers List", href: "/academics#toppers" },
+        { name: "Research", href: "/research" },
       ]
     },
     {
@@ -48,9 +60,9 @@ export default function Navbar() {
         { name: "Clubs & Cells", href: "/student-life#clubs" },
         { name: "NSS", href: "/student-life#nss" },
         { name: "Career & Placements", href: "/placement" },
-        { name: "Scholarships", href: "/student-life#scholarships" },
+        { name: "Scholarships", href: "/scholarships" },
         { name: "Counselling", href: "/student-life#counselling" },
-        { name: "Register a Complaint", href: "/student-life#complaint" },
+        { name: "Grievance Redressal", href: "/grievance" },
       ]
     },
     {
@@ -73,15 +85,38 @@ export default function Navbar() {
     { name: "News", href: "/news" },
   ];
 
+  const allLinks = [
+    ...navGroups.flatMap(group => group.links),
+    ...standaloneLinks,
+    { name: "Admissions", href: "/admissions" }
+  ];
+
+  const searchResults = searchQuery 
+    ? allLinks.filter(link => link.name.toLowerCase().includes(searchQuery.toLowerCase()))
+    : [];
+
   const quickLinks = ["Admissions", "Placement", "IQAC", "Contact"];
 
   const isActive = (path: string) => pathname === path;
 
+  // Clear search on route change
+  useEffect(() => {
+    setSearchQuery("");
+  }, [pathname]);
+
+  const handleSearchKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" && searchResults.length > 0) {
+      router.push(searchResults[0].href);
+      setSearchQuery("");
+      setIsOpen(false);
+    }
+  };
+
   return (
     <>
-      <header className="sticky top-0 z-50 flex flex-col group">
-        {/* Top bar */}
-        <div className="bg-[#263866] py-2 text-white text-[11px] font-medium px-6 z-50">
+      <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+        {/* Top bar - Fades out on scroll for cleaner floating look */}
+        <div className={`bg-[#263866] text-white text-[11px] font-medium px-6 transition-all duration-500 overflow-hidden ${scrolled ? "h-0 opacity-0" : "py-2 h-auto opacity-100"}`}>
           <div className="max-w-7xl mx-auto flex justify-between items-center">
             <div className="flex gap-4">
               <span>+91 7994 188918</span>
@@ -96,9 +131,18 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Main Nav */}
-        <nav className="bg-white/95 backdrop-blur-md border-b border-[#f3f4f6] shadow-sm relative z-50">
-          <div className="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
+        {/* Main Nav Container - Transitions from full-width to floating island */}
+        <div className={`transition-all duration-500 ${
+          scrolled 
+            ? "max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 mt-4" 
+            : "w-full mt-0"
+        }`}>
+          <nav className={`transition-all duration-500 relative z-50 ${
+            scrolled 
+              ? "bg-white/80 backdrop-blur-lg border border-[#e5e7eb] shadow-xl rounded-3xl" 
+              : "bg-white border-b border-[#f3f4f6]"
+          }`}>
+            <div className={`flex justify-between items-center h-20 transition-all duration-500 ${scrolled ? "px-6" : "max-w-[1440px] mx-auto px-6"}`}>
             <Link href="/" className="flex items-center gap-3 shrink-0">
               <div className="w-12 h-12 rounded-full overflow-hidden bg-[#fdfbf9] flex flex-col items-center justify-center border border-[#e5e7eb] group-hover:scale-105 transition-transform">
                  <img src="/images/logo.jpg" alt="Al Jamia Logo" className="w-full h-full object-contain p-1" />
@@ -170,6 +214,44 @@ export default function Navbar() {
                 </Link>
               ))}
 
+              <div className="relative group flex items-center ml-2">
+                <Search size={14} className="absolute left-3 text-[#9ca3af]" />
+                <input 
+                  type="text" 
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onKeyDown={handleSearchKeyDown}
+                  placeholder="Search..." 
+                  className="pl-8 pr-4 py-2 bg-[#f3f4f6] border border-transparent rounded-full text-xs focus:bg-white focus:border-[#e5e7eb] focus:ring-2 focus:ring-[#263866]/10 outline-none w-32 focus:w-48 transition-all duration-300"
+                />
+                
+                <AnimatePresence>
+                  {searchQuery && (
+                    <motion.div 
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      className="absolute top-full right-0 mt-3 w-64 bg-white border border-[#e5e7eb] rounded-xl shadow-2xl overflow-hidden z-50 flex flex-col max-h-[60vh] overflow-y-auto"
+                    >
+                      {searchResults.length > 0 ? (
+                        searchResults.map((link, i) => (
+                          <Link 
+                            key={i} 
+                            href={link.href} 
+                            onClick={() => setSearchQuery("")}
+                            className="px-4 py-3 text-xs text-[#4b5563] hover:text-[#263866] hover:bg-[#f3f4f6] border-b last:border-0 border-[#f3f4f6] transition-colors"
+                          >
+                            {link.name}
+                          </Link>
+                        ))
+                      ) : (
+                        <div className="px-4 py-4 text-xs text-[#9ca3af] text-center">No matching sections found.</div>
+                      )}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
               <Link href="/admissions" className="bg-[#263866] text-white px-5 py-2 rounded-full text-xs font-semibold hover:bg-[#1e40af] transition-all transform hover:scale-105 shadow-md shadow-blue-900/20">
                 Admissions
               </Link>
@@ -184,8 +266,9 @@ export default function Navbar() {
                 <Menu size={24} />
               </button>
             </div>
-          </div>
-        </nav>
+            </div>
+          </nav>
+        </div>
 
         {/* Mobile Drawer */}
         <AnimatePresence>
@@ -213,7 +296,37 @@ export default function Navbar() {
                 </div>
                 
                 <div className="flex-grow overflow-y-auto py-6 px-4">
-                  <div className="flex flex-col gap-1">
+                  <div className="mb-6 relative px-2">
+                    <Search size={16} className="absolute left-5 top-1/2 -translate-y-1/2 text-[#9ca3af]" />
+                    <input 
+                      type="text" 
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      onKeyDown={handleSearchKeyDown}
+                      placeholder="Search sections..." 
+                      className="w-full pl-10 pr-4 py-3 bg-[#f3f4f6] rounded-xl text-sm outline-none focus:ring-2 focus:ring-[#263866]/20 transition-all"
+                    />
+                  </div>
+
+                  {searchQuery ? (
+                    <div className="flex flex-col gap-2 px-2">
+                      {searchResults.length > 0 ? (
+                        searchResults.map((link, i) => (
+                          <Link 
+                            key={i} 
+                            href={link.href} 
+                            onClick={() => { setIsOpen(false); setSearchQuery(""); }}
+                            className="px-4 py-3 text-sm font-medium text-[#263866] bg-[#f8fafc] rounded-xl border border-[#e5e7eb] hover:bg-[#f1f5f9] transition"
+                          >
+                            {link.name}
+                          </Link>
+                        ))
+                      ) : (
+                        <div className="text-sm text-[#9ca3af] text-center py-4">No matching sections found.</div>
+                      )}
+                    </div>
+                  ) : (
+                    <div className="flex flex-col gap-1">
                     {navGroups.map((group) => (
                       <div key={group.name} className="border-b border-[#fafafa] last:border-0">
                         <button
@@ -271,6 +384,7 @@ export default function Navbar() {
                       Apply for Admissions
                     </Link>
                   </div>
+                  )}
                 </div>
               </motion.div>
             </>

@@ -1,134 +1,146 @@
 "use client";
 
-import Link from "next/link";
+import PageHero from "@/components/PageHero";
+import ScrollReveal from "@/components/ScrollReveal";
 import { User as UserIcon } from "lucide-react";
 
 export default function PtaPage() {
+  const members = [
+    { role: "President", name: "Mr. Abdul Kareem" },
+    { role: "Secretary", name: "Dr. Aisha Rahman" },
+    { role: "Treasurer", name: "Prof. Mohammed Ali" },
+  ];
+
+  const upcomingMeetings = [
+    { title: "Annual General Body Meeting", venue: "Main Auditorium", date: "June 10, 2026", time: "10:00 AM" },
+    { title: "Executive Committee", venue: "Conference Room", date: "May 25, 2026", time: "02:00 PM" },
+  ];
+
+  const pastMeetings = [
+    { title: "First Year Orientation PTA", date: "Aug 2025" },
+    { title: "Mid-term Review Meeting", date: "Nov 2025" },
+    { title: "Pre-Exam Counselling", date: "Feb 2026" },
+  ];
+
+  const announcements = [
+    "Fund allocation for the new smart classroom approved.",
+    "PTA Meritorious Student Award 2026 applications open.",
+    "Requesting parents to update their contact details in the portal.",
+    "Volunteers required for the upcoming Cultural Fest.",
+    "New transportation guidelines finalized by the committee.",
+  ];
+
   return (
-    <div className="flex flex-col">
-      {/* Page Hero */}
-      <section className="bg-white border-b border-[#f3f4f6] py-16">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="max-w-2xl">
-            <div className="text-xs text-[#9ca3af] mb-4">
-              <Link href="/" className="hover:text-[#263866] transition">Home</Link> → PTA
-            </div>
-            <h3 className="text-xs uppercase tracking-[0.2em] text-[#263866] font-medium mb-3">Parent Teacher Association</h3>
-            <h1 className="text-4xl font-semibold text-[#111827] mb-4">Collaborative Growth</h1>
-            <p className="text-[#6b7280]">Fostering a strong partnership between parents and teachers for the holistic development of our students.</p>
-          </div>
-        </div>
-      </section>
+    <div className="flex flex-col" style={{ background: "var(--c-surface)" }}>
+      <PageHero
+        breadcrumbs={[{ label: "PTA" }]}
+        label="PARENT TEACHER ASSOCIATION"
+        heading="Collaborative Growth"
+        subtext="Fostering a strong partnership between parents and teachers for the holistic development of our students."
+      />
 
       {/* Committee */}
-      <section className="bg-[#fafafa] py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-6">
-          <h3 className="text-xs uppercase tracking-[0.2em] text-[#263866] font-medium mb-3">Leadership</h3>
-          <h2 className="text-3xl font-semibold text-[#111827] mb-8">PTA Committee</h2>
-          
+      <section className="page-section" style={{ background: "var(--c-surface-raised)" }}>
+        <div className="max-w-7xl mx-auto px-6 md:px-16">
+          <ScrollReveal>
+            <p className="label mb-4">Leadership</p>
+            <h2 className="mb-12">PTA Committee</h2>
+          </ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { role: "President", name: "Mr. Abdul Kareem" },
-              { role: "Secretary", name: "Dr. Aisha Rahman" },
-              { role: "Treasurer", name: "Prof. Mohammed Ali" }
-            ].map((member, i) => (
-              <div key={i} className="bg-white border border-[#e5e7eb] rounded-xl p-6 flex flex-col items-center text-center border-t-4 border-t-[#263866] shadow-sm">
-                <div className="w-20 h-20 rounded-full bg-[#f3f4f6] flex items-center justify-center border border-[#e5e7eb] mb-4">
-                  <UserIcon size={24} className="text-[#9ca3af]" />
+            {members.map((member, i) => (
+              <ScrollReveal key={i} delay={i * 0.1}>
+                <div
+                  className="flex flex-col items-center text-center p-8 overflow-hidden"
+                  style={{
+                    border: "1px solid var(--c-border)",
+                    borderTop: `4px solid var(--c-primary)`,
+                    borderRadius: "var(--radius-lg)",
+                    background: "var(--c-surface)",
+                  }}
+                >
+                  <div
+                    className="w-20 h-20 rounded-full flex items-center justify-center mb-4"
+                    style={{ background: "var(--c-surface-raised)", border: "1px solid var(--c-border)" }}
+                  >
+                    <UserIcon size={24} style={{ color: "var(--c-text-tertiary)" }} />
+                  </div>
+                  <h4 className="mb-1" style={{ color: "var(--c-text-primary)" }}>{member.name}</h4>
+                  <p className="text-sm font-medium" style={{ color: "var(--c-primary)" }}>{member.role}</p>
                 </div>
-                <h4 className="text-lg font-semibold text-[#111827] mb-1">{member.name}</h4>
-                <p className="text-sm text-[#263866] font-medium">{member.role}</p>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
       </section>
 
       {/* Meetings & Announcements */}
-      <section className="bg-white py-16 md:py-24 border-y border-[#f3f4f6]">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
-            
-            {/* Meetings */}
-            <div>
-              <h3 className="text-xs uppercase tracking-[0.2em] text-[#263866] font-medium mb-3">Schedule</h3>
-              <h2 className="text-3xl font-semibold text-[#111827] mb-8">PTA Meetings</h2>
-              
+      <section className="page-section" style={{ background: "var(--c-surface)", borderTop: "1px solid var(--c-border)" }}>
+        <div className="max-w-7xl mx-auto px-6 md:px-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+
+            <ScrollReveal>
+              <p className="label mb-4">Schedule</p>
+              <h2 className="mb-8">PTA Meetings</h2>
               <div className="mb-8">
-                <h4 className="text-sm font-semibold text-[#111827] mb-4">Upcoming Meetings</h4>
-                <div className="flex flex-col gap-3">
-                  <div className="border border-[#e5e7eb] rounded-xl p-4 bg-[#fafafa] flex justify-between items-center">
-                    <div>
-                      <h5 className="font-semibold text-[#111827]">Annual General Body Meeting</h5>
-                      <p className="text-xs text-[#6b7280]">Main Auditorium</p>
+                <h4 className="font-semibold mb-4" style={{ color: "var(--c-text-primary)" }}>Upcoming Meetings</h4>
+                <div className="space-y-3">
+                  {upcomingMeetings.map((m, i) => (
+                    <div key={i} className="flex justify-between items-center p-5" style={{ border: "1px solid var(--c-border)", borderRadius: "var(--radius-md)", background: "var(--c-surface-raised)" }}>
+                      <div>
+                        <h5 className="font-semibold text-sm" style={{ color: "var(--c-text-primary)" }}>{m.title}</h5>
+                        <p className="text-xs mt-1" style={{ color: "var(--c-text-tertiary)" }}>{m.venue}</p>
+                      </div>
+                      <div className="text-right">
+                        <span className="block text-sm font-bold" style={{ color: "var(--c-primary)" }}>{m.date}</span>
+                        <span className="text-xs" style={{ color: "var(--c-text-tertiary)" }}>{m.time}</span>
+                      </div>
                     </div>
-                    <div className="text-right">
-                      <span className="block text-sm font-bold text-[#263866]">June 10, 2026</span>
-                      <span className="text-xs text-[#6b7280]">10:00 AM</span>
-                    </div>
-                  </div>
-                  <div className="border border-[#e5e7eb] rounded-xl p-4 bg-[#fafafa] flex justify-between items-center">
-                    <div>
-                      <h5 className="font-semibold text-[#111827]">Executive Committee</h5>
-                      <p className="text-xs text-[#6b7280]">Conference Room</p>
-                    </div>
-                    <div className="text-right">
-                      <span className="block text-sm font-bold text-[#263866]">May 25, 2026</span>
-                      <span className="text-xs text-[#6b7280]">02:00 PM</span>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
-
               <div>
-                <h4 className="text-sm font-semibold text-[#111827] mb-4">Past Archives</h4>
-                <table className="w-full text-left text-sm border border-[#e5e7eb] rounded-xl overflow-hidden block sm:table">
-                  <thead className="bg-[#f9fafb] border-b border-[#e5e7eb]">
-                    <tr>
-                      <th className="px-4 py-3 font-medium text-[#6b7280]">Meeting Type</th>
-                      <th className="px-4 py-3 font-medium text-[#6b7280]">Date</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-[#f3f4f6]">
-                    <tr><td className="px-4 py-3 text-[#111827]">First Year Orientation PTA</td><td className="px-4 py-3 text-[#4b5563]">Aug 2025</td></tr>
-                    <tr><td className="px-4 py-3 text-[#111827]">Mid-term Review Meeting</td><td className="px-4 py-3 text-[#4b5563]">Nov 2025</td></tr>
-                    <tr><td className="px-4 py-3 text-[#111827]">Pre-Exam Counselling</td><td className="px-4 py-3 text-[#4b5563]">Feb 2026</td></tr>
-                  </tbody>
-                </table>
+                <h4 className="font-semibold mb-4" style={{ color: "var(--c-text-primary)" }}>Past Archives</h4>
+                <div className="overflow-hidden" style={{ border: "1px solid var(--c-border)", borderRadius: "var(--radius-md)" }}>
+                  <table className="w-full text-left text-sm">
+                    <thead>
+                      <tr style={{ background: "var(--c-surface)", borderBottom: "1px solid var(--c-border)" }}>
+                        <th className="px-5 py-3 text-xs font-semibold uppercase tracking-wider" style={{ fontFamily: "var(--font-mono)", color: "var(--c-text-tertiary)" }}>Meeting Type</th>
+                        <th className="px-5 py-3 text-xs font-semibold uppercase tracking-wider" style={{ fontFamily: "var(--font-mono)", color: "var(--c-text-tertiary)" }}>Date</th>
+                      </tr>
+                    </thead>
+                    <tbody style={{ background: "var(--c-surface-raised)" }}>
+                      {pastMeetings.map((m, i) => (
+                        <tr key={i} style={{ borderBottom: i < pastMeetings.length - 1 ? "1px solid var(--c-border)" : "none" }}>
+                          <td className="px-5 py-3" style={{ color: "var(--c-text-primary)" }}>{m.title}</td>
+                          <td className="px-5 py-3" style={{ color: "var(--c-text-secondary)" }}>{m.date}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               </div>
-            </div>
+            </ScrollReveal>
 
-            {/* Announcements */}
-            <div>
-              <h3 className="text-xs uppercase tracking-[0.2em] text-[#263866] font-medium mb-3">Updates</h3>
-              <h2 className="text-3xl font-semibold text-[#111827] mb-8">Announcements</h2>
-              
-              <div className="flex flex-col gap-4">
-                {[
-                  "Fund allocation for the new smart classroom approved.",
-                  "PTA Meritorious Student Award 2026 applications open.",
-                  "Requesting parents to update their contact details in the portal.",
-                  "Volunteers required for the upcoming Cultural Fest.",
-                  "New transportation guidelines finalized by the committee."
-                ].map((text, i) => (
-                  <div key={i} className="border-l-4 border-[#263866] pl-4 py-3 bg-[#fafafa] rounded-r-lg border-y border-r border-[#e5e7eb]">
-                    <p className="text-sm text-[#111827] leading-relaxed">{text}</p>
+            <ScrollReveal delay={0.2}>
+              <p className="label mb-4">Updates</p>
+              <h2 className="mb-8">Announcements</h2>
+              <div className="flex flex-col gap-3 mb-10">
+                {announcements.map((text, i) => (
+                  <div key={i} className="pl-5 py-4 pr-5" style={{ borderLeft: `3px solid var(--c-primary)`, background: "var(--c-surface-raised)", border: "1px solid var(--c-border)", borderRadius: "0 var(--radius-sm) var(--radius-sm) 0" }}>
+                    <p className="text-sm leading-relaxed" style={{ color: "var(--c-text-primary)" }}>{text}</p>
                   </div>
                 ))}
               </div>
-
-              <div className="mt-12 bg-white border border-[#e5e7eb] rounded-xl p-6 shadow-sm">
-                <h4 className="font-semibold text-[#111827] mb-4">Parent Feedback Form</h4>
+              <div className="p-6 card-base">
+                <h4 className="font-semibold mb-4" style={{ color: "var(--c-text-primary)" }}>Parent Feedback Form</h4>
                 <form className="space-y-3">
-                  <input type="text" placeholder="Parent Name" className="w-full border border-[#e5e7eb] rounded-lg px-4 py-2 text-sm focus:border-[#263866] focus:ring-1 focus:ring-[#263866] outline-none" />
-                  <input type="text" placeholder="Student Name & Batch" className="w-full border border-[#e5e7eb] rounded-lg px-4 py-2 text-sm focus:border-[#263866] focus:ring-1 focus:ring-[#263866] outline-none" />
-                  <textarea rows={3} placeholder="Your Feedback/Suggestion" className="w-full border border-[#e5e7eb] rounded-lg px-4 py-2 text-sm focus:border-[#263866] focus:ring-1 focus:ring-[#263866] outline-none"></textarea>
-                  <button type="button" className="w-full bg-[#263866] text-white rounded-lg py-2 text-sm font-medium hover:bg-[#1e40af] transition">
-                    Submit Feedback
-                  </button>
+                  <input type="text" placeholder="Parent Name" className="input-base" />
+                  <input type="text" placeholder="Student Name & Batch" className="input-base" />
+                  <textarea rows={3} placeholder="Your Feedback/Suggestion" className="input-base" />
+                  <button type="button" className="btn-primary">Submit Feedback</button>
                 </form>
               </div>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>

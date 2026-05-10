@@ -1,11 +1,9 @@
 "use client";
 
 import PageHero from "@/components/PageHero";
-import SectionHeader from "@/components/SectionHeader";
 import ScrollReveal from "@/components/ScrollReveal";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 
-// Use custom social icons due to lucide-react brand removals
 const FacebookIcon = ({ size = 20 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
@@ -29,8 +27,14 @@ const LinkedinIcon = ({ size = 20 }: { size?: number }) => (
 );
 
 export default function ContactPage() {
+  const contactDetails = [
+    { icon: MapPin, title: "Our Address", lines: ["Al Jamia Arts & Science College", "Perinthalmanna, Malappuram,", "Kerala — 679325"] },
+    { icon: Phone, title: "Phone", lines: ["+91 7994 188918", "04933 227318"] },
+    { icon: Mail, title: "Email", lines: ["mail@ajascollege.ac.in", "admissions@ajascollege.ac.in"] },
+  ];
+
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col" style={{ background: "var(--c-surface)" }}>
       <PageHero
         breadcrumbs={[{ label: "Contact" }]}
         label="REACH OUT"
@@ -38,118 +42,98 @@ export default function ContactPage() {
         subtext="Have questions? We are here to help. Contact our administrative office for any queries related to admissions, academics, or other services."
       />
 
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
-              
-              {/* Left Column: Details */}
-              <ScrollReveal className="space-y-12 w-full">
-                 <div>
-                    <SectionHeader
-                      label="CONTACT DETAILS"
-                      heading="Visit our Campus"
-                    />
-                    <div className="space-y-8 mt-10">
-                       <div className="flex gap-6">
-                          <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-[#263866] shrink-0 border border-blue-100/50">
-                             <MapPin size={24} />
-                          </div>
-                          <div>
-                             <h4 className="font-bold text-[#111827] mb-1">Our Address</h4>
-                             <p className="text-sm text-[#6b7280] leading-relaxed">
-                                Al Jamia Arts & Science College<br />
-                                Perinthalmanna, Malappuram,<br />
-                                Kerala — 679325
-                             </p>
-                          </div>
-                       </div>
-                       <div className="flex gap-6">
-                          <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-[#263866] shrink-0 border border-blue-100/50">
-                             <Phone size={24} />
-                          </div>
-                          <div>
-                             <h4 className="font-bold text-[#111827] mb-1">Phone</h4>
-                             <p className="text-sm text-[#6b7280]">+91 7994 188918</p>
-                             <p className="text-sm text-[#6b7280]">04933 227318</p>
-                          </div>
-                       </div>
-                       <div className="flex gap-6">
-                          <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-[#263866] shrink-0 border border-blue-100/50">
-                             <Mail size={24} />
-                          </div>
-                          <div>
-                             <h4 className="font-bold text-[#111827] mb-1">Email</h4>
-                             <p className="text-sm text-[#6b7280]">mail@ajascollege.ac.in</p>
-                             <p className="text-sm text-[#6b7280]">admissions@ajascollege.ac.in</p>
-                          </div>
-                       </div>
+      <section className="page-section" style={{ background: "var(--c-surface-raised)" }}>
+        <div className="max-w-7xl mx-auto px-6 md:px-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+
+            {/* Left: Details */}
+            <ScrollReveal className="w-full">
+              <p className="label mb-6">Contact Details</p>
+              <h2 className="mb-10">Visit our Campus</h2>
+              <div className="space-y-8">
+                {contactDetails.map((detail, i) => (
+                  <div key={i} className="flex gap-6">
+                    <div className="icon-box flex-shrink-0" style={{ width: "3rem", height: "3rem" }}>
+                      <detail.icon size={20} />
                     </div>
-                 </div>
-
-                 {/* Social Links */}
-                 <div className="pt-8 border-t border-[#f3f4f6]">
-                    <h4 className="font-semibold text-[#111827] mb-6">Follow Us</h4>
-                    <div className="flex gap-4">
-                       {[
-                         { icon: FacebookIcon, href: "#" },
-                         { icon: InstagramIcon, href: "#" },
-                         { icon: LinkedinIcon, href: "#" },
-                       ].map((social, i) => (
-                         <a key={i} href={social.href} className="w-12 h-12 rounded-xl border border-[#e5e7eb] flex items-center justify-center text-[#4b5563] hover:border-[#263866] hover:text-[#263866] transition-all bg-white shadow-sm">
-                            <social.icon size={20} />
-                         </a>
-                       ))}
+                    <div>
+                      <h4 className="font-semibold mb-2" style={{ color: "var(--c-text-primary)" }}>{detail.title}</h4>
+                      {detail.lines.map((line, j) => (
+                        <p key={j} className="text-sm leading-relaxed" style={{ color: "var(--c-text-secondary)" }}>{line}</p>
+                      ))}
                     </div>
-                 </div>
+                  </div>
+                ))}
+              </div>
 
-                 {/* Google Maps Placeholder */}
-                 <div className="w-full h-64 bg-[#f3f4f6] rounded-2xl border border-dashed border-[#d1d5db] flex flex-col items-center justify-center relative overflow-hidden group">
-                    <MapPin size={32} className="text-[#9ca3af] mb-2 group-hover:scale-110 transition-transform" />
-                    <p className="text-[#9ca3af] text-sm font-medium">Google Maps Embed Placeholder</p>
-                    <p className="text-[10px] text-[#d1d5db] mt-1">AJAS Campus, Perinthalmanna</p>
-                 </div>
-              </ScrollReveal>
-
-              {/* Right Column: Form */}
-              <ScrollReveal delay={0.2} className="w-full">
-                <div className="bg-[#fafafa] border border-[#e5e7eb] rounded-3xl p-10 shadow-lg">
-                   <SectionHeader
-                     label="MESSAGE"
-                     heading="Send us a Message"
-                   />
-                   <form className="space-y-5 mt-8">
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                         <div>
-                            <label className="text-xs font-bold text-[#111827] uppercase tracking-wider mb-2 block">Full Name</label>
-                            <input type="text" className="w-full border border-[#e5e7eb] rounded-xl px-5 py-3 text-sm focus:border-[#263866] outline-none bg-white" placeholder="John Doe" />
-                         </div>
-                         <div>
-                            <label className="text-xs font-bold text-[#111827] uppercase tracking-wider mb-2 block">Email Address</label>
-                            <input type="email" className="w-full border border-[#e5e7eb] rounded-xl px-5 py-3 text-sm focus:border-[#263866] outline-none bg-white" placeholder="john@example.com" />
-                         </div>
-                      </div>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                         <div>
-                            <label className="text-xs font-bold text-[#111827] uppercase tracking-wider mb-2 block">Phone Number</label>
-                            <input type="text" className="w-full border border-[#e5e7eb] rounded-xl px-5 py-3 text-sm focus:border-[#263866] outline-none bg-white" placeholder="+91 00000 00000" />
-                         </div>
-                         <div>
-                            <label className="text-xs font-bold text-[#111827] uppercase tracking-wider mb-2 block">Subject</label>
-                            <input type="text" className="w-full border border-[#e5e7eb] rounded-xl px-5 py-3 text-sm focus:border-[#263866] outline-none bg-white" placeholder="General Inquiry" />
-                         </div>
-                      </div>
-                      <div>
-                         <label className="text-xs font-bold text-[#111827] uppercase tracking-wider mb-2 block">Your Message</label>
-                         <textarea rows={6} className="w-full border border-[#e5e7eb] rounded-xl px-5 py-3 text-sm focus:border-[#263866] outline-none bg-white" placeholder="How can we help you?"></textarea>
-                      </div>
-                      <button type="button" className="w-full bg-[#263866] text-white py-4 rounded-xl font-bold text-sm hover:bg-[#1e40af] transition-all shadow-lg shadow-blue-100">
-                         Send Message
-                      </button>
-                   </form>
+              <div className="mt-10 pt-8" style={{ borderTop: "1px solid var(--c-border)" }}>
+                <h4 className="font-semibold mb-4" style={{ color: "var(--c-text-primary)" }}>Follow Us</h4>
+                <div className="flex gap-3">
+                  {[FacebookIcon, InstagramIcon, LinkedinIcon].map((Icon, i) => (
+                    <a
+                      key={i}
+                      href="#"
+                      className="flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5"
+                      style={{
+                        width: "2.75rem",
+                        height: "2.75rem",
+                        border: "1px solid var(--c-border)",
+                        borderRadius: "var(--radius-sm)",
+                        background: "var(--c-surface)",
+                        color: "var(--c-text-secondary)",
+                      }}
+                    >
+                      <Icon size={18} />
+                    </a>
+                  ))}
                 </div>
-              </ScrollReveal>
+              </div>
 
-           </div>
+              <div
+                className="mt-8 w-full h-56 flex flex-col items-center justify-center"
+                style={{ background: "var(--c-surface)", border: "1px solid var(--c-border)", borderRadius: "var(--radius-lg)" }}
+              >
+                <MapPin size={28} style={{ color: "var(--c-text-tertiary)", marginBottom: "0.5rem" }} />
+                <p className="text-sm" style={{ color: "var(--c-text-tertiary)" }}>Google Maps Embed Placeholder</p>
+                <p className="text-xs mt-1" style={{ color: "var(--c-text-tertiary)", opacity: 0.6 }}>AJAS Campus, Perinthalmanna</p>
+              </div>
+            </ScrollReveal>
+
+            {/* Right: Form */}
+            <ScrollReveal delay={0.2} className="w-full">
+              <div className="p-10" style={{ background: "var(--c-surface)", border: "1px solid var(--c-border)", borderRadius: "var(--radius-lg)" }}>
+                <p className="label mb-4">Message</p>
+                <h2 className="mb-8">Send us a Message</h2>
+                <form className="space-y-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                      <label className="text-xs font-bold uppercase tracking-wider mb-2 block" style={{ color: "var(--c-text-primary)", fontFamily: "var(--font-mono)" }}>Full Name</label>
+                      <input type="text" className="input-base" placeholder="John Doe" />
+                    </div>
+                    <div>
+                      <label className="text-xs font-bold uppercase tracking-wider mb-2 block" style={{ color: "var(--c-text-primary)", fontFamily: "var(--font-mono)" }}>Email Address</label>
+                      <input type="email" className="input-base" placeholder="john@example.com" />
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                      <label className="text-xs font-bold uppercase tracking-wider mb-2 block" style={{ color: "var(--c-text-primary)", fontFamily: "var(--font-mono)" }}>Phone Number</label>
+                      <input type="text" className="input-base" placeholder="+91 00000 00000" />
+                    </div>
+                    <div>
+                      <label className="text-xs font-bold uppercase tracking-wider mb-2 block" style={{ color: "var(--c-text-primary)", fontFamily: "var(--font-mono)" }}>Subject</label>
+                      <input type="text" className="input-base" placeholder="General Inquiry" />
+                    </div>
+                  </div>
+                  <div>
+                    <label className="text-xs font-bold uppercase tracking-wider mb-2 block" style={{ color: "var(--c-text-primary)", fontFamily: "var(--font-mono)" }}>Your Message</label>
+                    <textarea rows={6} className="input-base" placeholder="How can we help you?" />
+                  </div>
+                  <button type="button" className="btn-primary">Send Message</button>
+                </form>
+              </div>
+            </ScrollReveal>
+          </div>
         </div>
       </section>
     </div>
